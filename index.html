@@ -548,6 +548,11 @@
 
     <script>
         // ==========================================================
+        //  ЯЗЫК ПО УМОЛЧАНИЮ (РУССКИЙ)
+        // ==========================================================
+        let currentLang = 'ru';
+
+        // ==========================================================
         //  ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК
         // ==========================================================
         function switchTab(tabId) {
@@ -558,7 +563,7 @@
         }
 
         // ==========================================================
-        //  СЛОВАРЬ ПЕРЕВОДОВ (ДОБАВЛЯЙ СЮДА АНГЛИЙСКИЕ ТЕКСТЫ)
+        //  СЛОВАРЬ ПЕРЕВОДОВ
         // ==========================================================
         const langRu = {
             homeTitle: "Трейлер",
@@ -663,8 +668,6 @@
         // ==========================================================
         //  ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА
         // ==========================================================
-        let currentLang = 'ru';
-
         function setLanguage(lang) {
             currentLang = lang;
             const dict = lang === 'en' ? langEn : langRu;
@@ -811,16 +814,19 @@
                 const text = await response.text();
                 const lines = text.split('\n').filter(line => line.trim() !== '');
 
-                if (lines.length > 0) {
-                    // Извлекаем число из первой строки (любое количество цифр)
-                    const match = lines[0].trim().match(/^\d+$/);
+                // Ищем число в любой строке (первая подходящая)
+                let percent = null;
+                for (const line of lines) {
+                    const match = line.trim().match(/^\d+$/);
                     if (match) {
-                        const percent = parseInt(match[0]);
-                        // Определяем текущий язык
-                        const dict = currentLang === 'en' ? langEn : langRu;
-                        // Сразу ставим полное число и правильную надпись
-                        document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + percent + '%';
+                        percent = parseInt(match[0]);
+                        break; // нашли — выходим из цикла
                     }
+                }
+
+                if (percent !== null && percent >= 0 && percent <= 999) {
+                    const dict = currentLang === 'en' ? langEn : langRu;
+                    document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + percent + '%';
                 }
 
                 const logContainer = document.getElementById('progress-log');
@@ -861,6 +867,9 @@
         }
 
         document.addEventListener('DOMContentLoaded', function () {
+            // Принудительно устанавливаем русский язык перед загрузкой
+            currentLang = 'ru';
+            
             const images = document.querySelectorAll('.clickable-img');
             images.forEach(img => {
                 img.addEventListener('click', function (e) {
