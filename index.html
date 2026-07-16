@@ -325,12 +325,12 @@
 
     <!-- Меню -->
     <nav>
-        <button onclick="switchTab('home')">Главная</button>
-        <button onclick="switchTab('legend')">Легенда</button>
-        <button onclick="switchTab('media')">Материалы</button>
-        <button onclick="switchTab('actors')">Актёры</button>
-        <button onclick="switchTab('contact')">Связь</button>
-        <button onclick="switchTab('subscribe')">Подписаться</button>
+        <button id="navHome" onclick="switchTab('home')">Главная</button>
+        <button id="navLegend" onclick="switchTab('legend')">Легенда</button>
+        <button id="navMedia" onclick="switchTab('media')">Материалы</button>
+        <button id="navActors" onclick="switchTab('actors')">Актёры</button>
+        <button id="navContact" onclick="switchTab('contact')">Связь</button>
+        <button id="navSubscribe" onclick="switchTab('subscribe')">Подписаться</button>
     </nav>
 
     <!-- Контент -->
@@ -575,6 +575,14 @@
             actor2Title: "Лекарь",
             actor2Desc: "Девушка в зелёной мантии, с каштановыми волосами и добрым сердцем. Пугливая, но верная спутница.",
             actor3Desc: "И возможно, кто-то ещё?..",
+            // Навигация
+            navHome: "Главная",
+            navLegend: "Легенда",
+            navMedia: "Материалы",
+            navActors: "Актёры",
+            navContact: "Связь",
+            navSubscribe: "Подписаться",
+            progressLabel: "ПРОГРЕСС ПЕРВОЙ ГЛАВЫ",
             // Легенда
             legend1: "Когда с небес сойдут,\nГерои, чьих имён не знаем мы,\nОни на помощь к нам придут,\nИ защитят наш мир от тьмы.",
             legend2: "По свиткам, что храним веками,\nИзвестно, у них сильный дух.\nВдвоём, своими же руками\nУбьют того, чей свет потух.",
@@ -616,6 +624,14 @@
             actor2Title: "Healer",
             actor2Desc: "A girl in a green cloak with chestnut hair and a kind heart. Timid but loyal companion.",
             actor3Desc: "And perhaps someone else?..",
+            // Navigation
+            navHome: "Home",
+            navLegend: "Legend",
+            navMedia: "Media",
+            navActors: "Cast",
+            navContact: "Contact",
+            navSubscribe: "Subscribe",
+            progressLabel: "CHAPTER 1 PROGRESS",
             // Legend (English translation — revised)
             legend1: "When from the heavens they descend,\nThe nameless heroes we await,\nThey'll come to aid us in the end,\nAnd shield our world from shadow's fate.",
             legend2: "In ancient scrolls preserved through years,\nWe know the strength within their soul.\nWith their own hands, they'll end the one\nWhose fading light has lost control.",
@@ -647,7 +663,7 @@
         // ==========================================================
         let currentLang = 'ru';
 
-        function setLanguage(lang) {
+                function setLanguage(lang) {
             currentLang = lang;
             const dict = lang === 'en' ? langEn : langRu;
 
@@ -678,6 +694,22 @@
             document.getElementById('legend7').textContent = dict.legend7;
             document.getElementById('legend8').textContent = dict.legend8;
             document.getElementById('legend9').textContent = dict.legend9;
+
+            // Навигация (кнопки меню)
+            document.getElementById('navHome').textContent = dict.navHome;
+            document.getElementById('navLegend').textContent = dict.navLegend;
+            document.getElementById('navMedia').textContent = dict.navMedia;
+            document.getElementById('navActors').textContent = dict.navActors;
+            document.getElementById('navContact').textContent = dict.navContact;
+            document.getElementById('navSubscribe').textContent = dict.navSubscribe;
+
+            // Прогресс
+            const percent = document.getElementById('progressDisplay').textContent.match(/\d+/);
+            if (percent) {
+                document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + percent[0] + '%';
+            } else {
+                document.getElementById('progressDisplay').textContent = dict.progressLabel + ': 0%';
+            }
 
             // Материалы — тексты и картинки
             document.getElementById('mediaDesc1').textContent = dict.mediaDesc1;
