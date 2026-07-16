@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -340,7 +341,7 @@
         <iframe id="trailerVideo" width="560" height="315" src="https://www.youtube.com/embed/lGth_xZWymo" frameborder="0" allowfullscreen></iframe>
 
         <div class="progress-wrap">
-            <div class="progress-text" id="progressDisplay">ПРОГРЕСС: 0%</div>
+            <div class="progress-text" id="progressDisplay"></div>
             <div id="progress-log"></div>
         </div>
     </div>
@@ -523,7 +524,7 @@
         <p class="contact-text" id="contactDesc">Форма для отправки сообщений разработчику. Мнение, вопросы, контакты, что угодно - я всё читаю!</p>
 
         <div style="max-width: 600px; margin: 20px auto; text-align: left;">
-                        <textarea id="feedbackText" rows="6" style="width: 100%; background: #111; color: #33ff33; border: 2px solid #33ff33; padding: 10px; font-family: 'Press Start 2P', cursive; font-size: 14px; resize: vertical; box-sizing: border-box;"></textarea>
+            <textarea id="feedbackText" rows="6" style="width: 100%; background: #111; color: #33ff33; border: 2px solid #33ff33; padding: 10px; font-family: 'Press Start 2P', cursive; font-size: 14px; resize: vertical; box-sizing: border-box;"></textarea>
             <br>
             <button onclick="sendFeedback()" style="background: #c0c0c0; color: #000; font-family: 'Press Start 2P', cursive; font-size: 14px; padding: 10px 20px; margin-top: 10px; border: 3px solid #fff; border-right-color: #808080; border-bottom-color: #808080; cursor: pointer;" id="sendBtn">Отправить</button>
             <div id="feedbackStatus" style="margin-top: 10px; font-size: 14px;"></div>
@@ -709,7 +710,7 @@
             document.getElementById('navSubscribe').textContent = dict.navSubscribe;
 
             // Прогресс
-            const percentMatch = document.getElementById('progressDisplay').textContent.match(/\d+/);
+            const percentMatch = document.getElementById('progressDisplay').textContent.match(/\d+(?=%)/);
             if (percentMatch) {
                 document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + percentMatch[0] + '%';
             }
@@ -852,6 +853,18 @@
             }
         }
 
+        let progressHue = 0;
+
+        setInterval(() => {
+            progressHue = (progressHue + 1.2) % 360;
+
+            const p = document.getElementById("progressDisplay");
+
+            p.style.color = `hsl(${progressHue},100%,60%)`;
+            p.style.textShadow = `0 0 20px hsl(${progressHue},100%,60%)`;
+
+        }, 50);
+
         // ==========================================================
         //  ПОПАП КАРТИНОК
         // ==========================================================
@@ -869,7 +882,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Принудительно устанавливаем русский язык перед загрузкой
             currentLang = 'ru';
-            
+
             const images = document.querySelectorAll('.clickable-img');
             images.forEach(img => {
                 img.addEventListener('click', function (e) {
