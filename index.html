@@ -523,7 +523,7 @@
         <p class="contact-text" id="contactDesc">Форма для отправки сообщений разработчику. Мнение, вопросы, контакты, что угодно - я всё читаю!</p>
 
         <div style="max-width: 600px; margin: 20px auto; text-align: left;">
-            <textarea id="feedbackText" rows="6" style="width: 100%; background: #111; color: #33ff33; border: 2px solid #33ff33; padding: 10px; font-family: 'Press Start 2P', cursive; font-size: 14px; resize: vertical; box-sizing: border-box;" placeholder="Твой текст... (до 15 000 символов)"></textarea>
+                        <textarea id="feedbackText" rows="6" style="width: 100%; background: #111; color: #33ff33; border: 2px solid #33ff33; padding: 10px; font-family: 'Press Start 2P', cursive; font-size: 14px; resize: vertical; box-sizing: border-box;"></textarea>
             <br>
             <button onclick="sendFeedback()" style="background: #c0c0c0; color: #000; font-family: 'Press Start 2P', cursive; font-size: 14px; padding: 10px 20px; margin-top: 10px; border: 3px solid #fff; border-right-color: #808080; border-bottom-color: #808080; cursor: pointer;" id="sendBtn">Отправить</button>
             <div id="feedbackStatus" style="margin-top: 10px; font-size: 14px;"></div>
@@ -583,6 +583,7 @@
             navContact: "Связь",
             navSubscribe: "Подписаться",
             progressLabel: "ПРОГРЕСС ПЕРВОЙ ГЛАВЫ",
+            feedbackPlaceholder: "Твой текст... (до 15 000 символов)",
             // Легенда
             legend1: "Когда с небес сойдут,\nГерои, чьих имён не знаем мы,\nОни на помощь к нам придут,\nИ защитят наш мир от тьмы.",
             legend2: "По свиткам, что храним веками,\nИзвестно, у них сильный дух.\nВдвоём, своими же руками\nУбьют того, чей свет потух.",
@@ -632,6 +633,7 @@
             navContact: "Contact",
             navSubscribe: "Subscribe",
             progressLabel: "CHAPTER 1 PROGRESS",
+            feedbackPlaceholder: "Your text... (up to 15,000 characters)",
             // Legend (English translation — revised)
             legend1: "When from the heavens they descend,\nThe nameless heroes we await,\nThey'll come to aid us in the end,\nAnd shield our world from shadow's fate.",
             legend2: "In ancient scrolls preserved through years,\nWe know the strength within their soul.\nWith their own hands, they'll end the one\nWhose fading light has lost control.",
@@ -710,6 +712,7 @@
             } else {
                 document.getElementById('progressDisplay').textContent = dict.progressLabel + ': 0%';
             }
+            document.getElementById('feedbackText').placeholder = dict.feedbackPlaceholder;
 
             // Материалы — тексты и картинки
             document.getElementById('mediaDesc1').textContent = dict.mediaDesc1;
