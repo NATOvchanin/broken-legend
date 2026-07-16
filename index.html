@@ -665,7 +665,7 @@
         // ==========================================================
         let currentLang = 'ru';
 
-                function setLanguage(lang) {
+        function setLanguage(lang) {
             currentLang = lang;
             const dict = lang === 'en' ? langEn : langRu;
 
@@ -706,13 +706,10 @@
             document.getElementById('navSubscribe').textContent = dict.navSubscribe;
 
             // Прогресс
-            const percent = document.getElementById('progressDisplay').textContent.match(/\d+/);
-            if (percent) {
-                document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + percent[0] + '%';
-            } else {
-                document.getElementById('progressDisplay').textContent = dict.progressLabel + ': 0%';
+            const percentMatch = document.getElementById('progressDisplay').textContent.match(/\d+/);
+            if (percentMatch) {
+                document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + percentMatch[0] + '%';
             }
-            document.getElementById('feedbackText').placeholder = dict.feedbackPlaceholder;
 
             // Материалы — тексты и картинки
             document.getElementById('mediaDesc1').textContent = dict.mediaDesc1;
@@ -729,7 +726,11 @@
             document.getElementById('mediaImg5').src = dict.mediaImg5;
             document.getElementById('mediaImg6').src = dict.mediaImg6;
 
+            // Обновляем трейлер
             document.getElementById('trailerVideo').src = dict.trailerUrl;
+
+            // Обновляем плейсхолдер в форме
+            document.getElementById('feedbackText').placeholder = dict.feedbackPlaceholder;
         }
 
         // ==========================================================
@@ -811,9 +812,14 @@
                 const lines = text.split('\n').filter(line => line.trim() !== '');
 
                 if (lines.length > 0) {
-                    const percent = parseInt(lines[0].trim());
-                    if (!isNaN(percent) && percent >= 0 && percent <= 100) {
-                        document.getElementById('progressDisplay').textContent = 'ПРОГРЕСС ПЕРВОЙ ГЛАВЫ: ' + percent + '%';
+                    // Извлекаем число из первой строки (любое количество цифр)
+                    const match = lines[0].trim().match(/^\d+$/);
+                    if (match) {
+                        const percent = parseInt(match[0]);
+                        // Определяем текущий язык
+                        const dict = currentLang === 'en' ? langEn : langRu;
+                        // Сразу ставим полное число и правильную надпись
+                        document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + percent + '%';
                     }
                 }
 
