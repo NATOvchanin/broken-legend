@@ -788,23 +788,39 @@
                 if (currentMessage) messages.push(currentMessage);
 
                 for (const msg of messages) {
-                    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
                         body: JSON.stringify({
                             chat_id: CHAT_ID,
                             text: msg.trim()
                         })
                     });
+
+                    const data = await res.json();
+
+                    console.log(data);
+
+                    if (!data.ok) {
+                        throw new Error(data.description);
+                    }
                 }
 
                 status.textContent = currentLang === 'ru' ? 'Сообщение отправлено! Спасибо!' : 'Message sent! Thank you!';
                 status.style.color = '#33ff33';
                 document.getElementById('feedbackText').value = '';
             } catch (e) {
-                status.textContent = currentLang === 'ru' ? 'Ошибка отправки. Попробуй позже.' : 'Send error. Please try again later.';
+                console.error("Ошибка:", e);
+
+                status.textContent =
+                    (currentLang === 'ru'
+                        ? 'Ошибка отправки: '
+                        : 'Send error: ')
+                    + (e.message || e);
+
                 status.style.color = '#ff0033';
-                console.error(e);
             }
         }
 
