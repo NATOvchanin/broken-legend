@@ -1,5 +1,5 @@
 #ON
-15
+16
+*Дописана первая сцена с ветвлением контента(The first scene with branching content has been written)
 *Создана первая игровая тема(The first game OST has been created)
 *Обновлён главный сайт (Main website updated)
-*Создан трейлер (Trailer created)
