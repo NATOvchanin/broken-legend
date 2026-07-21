@@ -1,5 +1,5 @@
 #ON
-17
+18
+*Создана нормальная система сохранений на дисках(A proper disk-based save system has been implemented)
 *Дописана первая сцена с ветвлением контента(The first scene with branching content has been written)
 *Создана первая игровая тема(The first game OST has been created)
-*Обновлён главный сайт (Main website updated)
