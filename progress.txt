@@ -1,5 +1,5 @@
 #ON
-19
-*Написан текст 2 случайных встреч(The text for two chance encounters has been written)
+20
+*Написан текст 3 случайных встреч(The text for three chance encounters has been written)
 *Создана нормальная система сохранений на дисках(A proper disk-based save system has been implemented)
 *Дописана первая сцена с ветвлением контента(The first scene with branching content has been written)
