@@ -1,5 +1,5 @@
 #ON
-20
+21
+*Отрисовано множество текстур(A multitude of textures have been rendered)
 *Написан текст 3 случайных встреч(The text for three chance encounters has been written)
 *Создана нормальная система сохранений на дисках(A proper disk-based save system has been implemented)
-*Дописана первая сцена с ветвлением контента(The first scene with branching content has been written)
