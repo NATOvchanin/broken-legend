@@ -1,5 +1,5 @@
 #ON
-21
+22
+*Закончены все 3 случайные сцены(All 3 random scenes are complete)
 *Отрисовано множество текстур(A multitude of textures have been rendered)
 *Написан текст 3 случайных встреч(The text for three chance encounters has been written)
-*Создана нормальная система сохранений на дисках(A proper disk-based save system has been implemented)
