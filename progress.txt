@@ -1,5 +1,5 @@
 #ON
-23
+24
+*Закончены текстурки для демки(The textures for the demo are finished)
 *Написан текст для середины 1 дня(Text for the middle of day 1 has been written)
 *Закончены все 3 случайные сцены(All 3 random scenes are complete)
-*Отрисовано множество текстур(A multitude of textures have been rendered)
