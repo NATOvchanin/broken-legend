@@ -327,6 +327,7 @@
     <!-- Меню -->
     <nav>
         <button id="navHome" onclick="switchTab('home')">Главная</button>
+        <button id="navDemo" onclick="switchTab('demo')">Демо</button>
         <button id="navLegend" onclick="switchTab('legend')">Легенда</button>
         <button id="navMedia" onclick="switchTab('media')">Материалы</button>
         <button id="navActors" onclick="switchTab('actors')">Актёры</button>
@@ -339,10 +340,20 @@
     <div id="home" class="tab-content active">
         <h2 id="homeTitle">Трейлер</h2>
         <iframe id="trailerVideo" width="560" height="315" src="https://www.youtube.com/embed/lGth_xZWymo" frameborder="0" allowfullscreen></iframe>
-
+    
         <div class="progress-wrap">
             <div class="progress-text" id="progressDisplay"></div>
             <div id="progress-log"></div>
+        </div>
+    </div>
+    
+    <!-- Вкладка "Демо" -->
+    <div id="demo" class="tab-content">
+        <h2 id="demoTitle">Скачать демо</h2>
+        <div style="font-size: 18px; line-height: 2.5; max-width: 600px; margin: 0 auto;">
+            <a href="https://vkplay.ru/play/game/talebreak-48924/" target="_blank">VK Play</a><br>
+            <a href="https://gamejolt.com/games/talebreak/1083144" target="_blank">GameJolt</a><br>
+            <a href="https://natovchanin.itch.io/talebreak" target="_blank">Itch.io</a>
         </div>
     </div>
 
@@ -581,6 +592,8 @@
             actor2Title: "Лекарь",
             actor2Desc: "Девушка в зелёной мантии, с каштановыми волосами и добрым сердцем. Пугливая, но верная спутница.",
             actor3Desc: "И возможно, кто-то ещё?..",
+            navDemo: "Демо",
+            demoTitle: "Скачать демо",
             // Навигация
             navHome: "Главная",
             navLegend: "Легенда",
@@ -631,6 +644,8 @@
             actor2Title: "Healer",
             actor2Desc: "A girl in a green cloak with chestnut hair and a kind heart. Timid but loyal companion.",
             actor3Desc: "And perhaps someone else?..",
+            navDemo: "Demo",
+            demoTitle: "Download Demo",
             // Navigation
             navHome: "Home",
             navLegend: "Legend",
@@ -682,6 +697,10 @@
             document.getElementById('contactDesc').textContent = dict.contactDesc;
             document.getElementById('sendBtn').textContent = dict.sendBtn;
             document.getElementById('subTitle').textContent = dict.subTitle;
+
+            // Демо
+            document.getElementById('navDemo').textContent = dict.navDemo;
+            document.getElementById('demoTitle').textContent = dict.demoTitle;
 
             // Актёры
             document.getElementById('actor1Title').textContent = dict.actor1Title;
