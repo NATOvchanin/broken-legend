@@ -1,5 +1,5 @@
 #ON
 25
-*Закончен сценарий демо-версии(The script for the demo version is complete)
-*Закончены текстурки для демки(The textures for the demo are finished)
-*Написан текст для середины 1 дня(Text for the middle of day 1 has been written)
+*Демо-версия опубликована! (The demo version has been released!)
+*Закончен сценарий демо-версии (The script for the demo version is complete)
+*Закончены текстурки для демки (The textures for the demo are finished)
