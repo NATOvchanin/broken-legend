@@ -1,5 +1,5 @@
 #ON
-27
+28
+*Спроектирована половина развилок в сцене(Half of the branching paths in the scene have been designed)
 *Готов сценарий развилки после Башни Магов (The script for the branching path following the Mage Tower is ready)
 *Написана сцена в Башне Магов (The scene in the Tower of Mages is written)
-*Выпущен патч (A patch has been released)
