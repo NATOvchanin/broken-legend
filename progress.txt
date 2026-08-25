@@ -1,5 +1,5 @@
 #ON
-30
+31
+*Улучшен код боя (Improved battle code)
 *Доделан лабиринт (The labyrinth is finished)
 *Спроектирована колода мини-босса (Mini-boss deck designed)
-*Спроектирована половина развилок в сцене (Half of the branching paths in the scene have been designed)
