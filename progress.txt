@@ -1,5 +1,5 @@
 #ON
-31
+32
+*Дописан текст сцены мини-босса (The text for the mini-boss scene has been added)
 *Улучшен код боя (Improved battle code)
 *Доделан лабиринт (The labyrinth is finished)
-*Спроектирована колода мини-босса (Mini-boss deck designed)
