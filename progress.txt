@@ -1,5 +1,5 @@
 #ON
-32
+33
+*Нарисованы спрайты лабиринта (The maze sprites have been drawn)
 *Дописан текст сцены мини-босса (The text for the mini-boss scene has been added)
 *Улучшен код боя (Improved battle code)
-*Доделан лабиринт (The labyrinth is finished)
