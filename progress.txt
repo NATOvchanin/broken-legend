@@ -1,5 +1,5 @@
 #ON
-34
+35
+*Дописан сценарий 1 дня (The script for Day 1 has been completed)
 *Дополнены диалоги Мириама (Miriam's dialogues have been supplemented)
 *Нарисованы спрайты лабиринта (The maze sprites have been drawn)
-*Дописан текст сцены мини-босса (The text for the mini-boss scene has been added)
