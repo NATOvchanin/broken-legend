@@ -1,5 +1,5 @@
 #ON
-35
+37
+*Готовы текстуры 1 дня (Day 1 textures are ready)
+*Закончен бой с мини-боссом (Mini-boss fight concluded)
 *Дописан сценарий 1 дня (The script for Day 1 has been completed)
-*Дополнены диалоги Мириама (Miriam's dialogues have been supplemented)
-*Нарисованы спрайты лабиринта (The maze sprites have been drawn)
