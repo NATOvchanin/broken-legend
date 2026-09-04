@@ -1,5 +1,5 @@
 #ON
-37
+38
+*Закончен код 1 дня (Day 1 code completed)
 *Готовы текстуры 1 дня (Day 1 textures are ready)
 *Закончен бой с мини-боссом (Mini-boss fight concluded)
-*Дописан сценарий 1 дня (The script for Day 1 has been completed)
