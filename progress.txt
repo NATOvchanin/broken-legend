@@ -1,5 +1,5 @@
 #ON
-38
+39
+*Сделана ночная сцена в таверне (A night scene in the tavern has been created)
 *Закончен код 1 дня (Day 1 code completed)
 *Готовы текстуры 1 дня (Day 1 textures are ready)
-*Закончен бой с мини-боссом (Mini-boss fight concluded)
