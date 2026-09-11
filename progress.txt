@@ -1,5 +1,5 @@
 #ON
-43
+44
+*Написана мини-игра для утра 2 дня (A mini-game has been written for the morning of Day 2)
 *Написан текст вступления 2 дня (The introductory text was written in two days)
 *Нарисованы текстуры для утра 2 дня (Textures for the morning of Day 2 have been drawn)
-*ПОЛОВИНА ПЕРВОГО ЭПИЗОДА ГОТОВА! (HALF OF THE FIRST EPISODE IS READY!)
