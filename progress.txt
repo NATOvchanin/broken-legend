@@ -1,5 +1,5 @@
 #ON
-41
+42
+*Нарисованы текстуры для утра 2 дня (Textures for the morning of Day 2 have been drawn)
 *ПОЛОВИНА ПЕРВОГО ЭПИЗОДА ГОТОВА! (HALF OF THE FIRST EPISODE IS READY!)
 *Улучшены боевые анимации (Combat animations have been improved)
-*Сделана ночная сцена в таверне (A night scene in the tavern has been created)
