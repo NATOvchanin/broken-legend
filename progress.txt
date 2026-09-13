@@ -1,5 +1,5 @@
 #ON
-47
+48
+*Дописан утренний контент в Ночевальне (Finished writing the morning content for Nightkeep)
 *Закончено создание новых случайных встреч (The creation of new random encounters is complete)
 *Сделаны текстуры для новых случайных встреч (Textures have been added for new random encounters)
-*Прописан сюжет новых случайных встреч (The plot of new random encounters has been written)
