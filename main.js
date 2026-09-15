@@ -13,10 +13,9 @@
 
             let isAcceptingMessages = true;
             try {
-                const response = await fetch('progress.txt');
-                const raw = await response.text();
-                const firstLine = raw.split('\n')[0].trim();
-                if (firstLine === '#OFF') {
+                const response = await fetch('progress.json');
+                const data = await response.json();
+                if (data.status === 'OFF') {
                     isAcceptingMessages = false;
                 }
             } catch (e) {
@@ -71,44 +70,33 @@
 
         async function loadProgress() {
             try {
-                const url = 'progress.txt';
-                const response = await fetch(url);
-                const text = await response.text();
-                const lines = text.split('\n').filter(line => line.trim() !== '');
+                const response = await fetch('progress.json');
+                const data = await response.json();
 
-                // Ищем число в любой строке (первая подходящая)
-                let percent = null;
-                for (const line of lines) {
-                    const match = line.trim().match(/^\d+$/);
-                    if (match) {
-                        percent = parseInt(match[0]);
-                        break; // нашли — выходим из цикла
-                    }
-                }
-
-                if (percent !== null && percent >= 0 && percent <= 999) {
+                if (typeof data.percent === 'number' && data.percent >= 0 && data.percent <= 100) {
                     const dict = currentLang === 'en' ? langEn : langRu;
-                    document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + percent + '%';
+                    document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + data.percent + '%';
                 }
 
                 const logContainer = document.getElementById('progress-log');
                 logContainer.innerHTML = '';
                 let hue = 0;
 
-                for (let i = 1; i < lines.length; i++) {
-                    const line = lines[i].trim();
-                    if (line.startsWith('*')) {
-                        const text = line.substring(1).trim();
-                        const el = document.createElement('div');
-                        el.className = 'log-item';
-                        el.textContent = '- ' + text;
-                        setInterval(() => {
-                            hue = (hue + 1.2) % 360;
-                            el.style.color = 'hsl(' + hue + ', 100%, 60%)';
-                        }, 50);
-                        logContainer.appendChild(el);
-                    }
-                }
+                // Пунктов может быть от 0 до 10 — сколько заполнено,
+                // столько и показывается. slice(0, 10) — защита на
+                // случай, если в файле случайно окажется больше.
+                const items = Array.isArray(data.items) ? data.items.slice(0, 10) : [];
+
+                items.forEach(text => {
+                    const el = document.createElement('div');
+                    el.className = 'log-item';
+                    el.textContent = '- ' + text;
+                    setInterval(() => {
+                        hue = (hue + 1.2) % 360;
+                        el.style.color = 'hsl(' + hue + ', 100%, 60%)';
+                    }, 50);
+                    logContainer.appendChild(el);
+                });
             } catch (e) {
                 console.log('Не удалось загрузить прогресс:', e);
             }
@@ -142,15 +130,16 @@
             document.getElementById('image-popup').classList.remove('active');
         }
 
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', async function () {
             // Принудительно устанавливаем русский язык перед загрузкой
             currentLang = 'ru';
 
-            // Строим блоки "Легенда" и "Материалы" из данных
-            // (см. content-data.js / render.js), затем сразу
-            // подставляем тексты — до этого момента контейнеры пустые.
+            // Легенда строится синхронно из локальных данных (content-data.js).
+            // Материалы — асинхронно, из media.json (см. render.js) — поэтому
+            // ждём их перед первым применением перевода, иначе setLanguage()
+            // не найдёт ещё не созданные .media-item.
             renderLegend();
-            renderMedia();
+            await renderMedia();
             setLanguage(currentLang);
 
             const images = document.querySelectorAll('.clickable-img');

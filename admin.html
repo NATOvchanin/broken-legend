@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Talebreak — помощник контента (локальный инструмент)</title>
+<style>
+    * { box-sizing: border-box; }
+    body {
+        font-family: system-ui, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 24px;
+        background: #1a1a1a;
+        color: #e0e0e0;
+    }
+    h1 { font-size: 20px; }
+    .note {
+        background: #2a2a2a;
+        border-left: 4px solid #f5a623;
+        padding: 10px 14px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #ccc;
+    }
+    .tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+    .tab-btn {
+        background: #2a2a2a;
+        color: #ccc;
+        border: 1px solid #444;
+        padding: 8px 16px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    .tab-btn.active { background: #f5a623; color: #111; font-weight: bold; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    label { display: block; margin-top: 12px; font-size: 13px; color: #aaa; }
+    input[type=text], input[type=number], textarea {
+        width: 100%;
+        background: #222;
+        color: #eee;
+        border: 1px solid #444;
+        border-radius: 4px;
+        padding: 8px;
+        font-family: inherit;
+        font-size: 14px;
+        margin-top: 4px;
+    }
+    textarea { resize: vertical; min-height: 60px; }
+
+    button.action {
+        background: #f5a623;
+        color: #111;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 16px;
+        margin-right: 8px;
+    }
+    button.action:hover { background: #ffb84d; }
+    button.remove {
+        background: #a92323;
+        color: #fff;
+        border: none;
+        padding: 4px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+    }
+
+    .item-row {
+        background: #222;
+        border: 1px solid #333;
+        border-radius: 6px;
+        padding: 12px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .item-row .content { flex: 1; font-size: 13px; white-space: pre-wrap; }
+
+    .output {
+        margin-top: 20px;
+    }
+    .output textarea {
+        min-height: 220px;
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
+    }
+    .counter { font-size: 12px; color: #888; margin-top: 4px; }
+    .counter.warn { color: #ff6b6b; }
+
+    .field-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 16px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Talebreak — помощник контента</h1>
+<div class="note">
+    Это локальный инструмент, не часть публичного сайта. Он ничего никуда не отправляет —
+    просто собирает то, что ты введёшь, в готовый JSON, который останется скопировать
+    в <code>progress.json</code> или <code>media.json</code> и запушить в репозиторий.
+</div>
+
+<div class="tabs">
+    <button class="tab-btn active" onclick="switchPanel('progress')">Прогресс (главная)</button>
+    <button class="tab-btn" onclick="switchPanel('media')">Материалы</button>
+</div>
+
+<!-- ============ ПРОГРЕСС ============ -->
+<div id="panel-progress" class="panel active">
+    <label>Статус приёма сообщений формы обратной связи</label>
+    <select id="p-status" style="width:100%; background:#222; color:#eee; border:1px solid #444; border-radius:4px; padding:8px; margin-top:4px;">
+        <option value="ON">ON — форма работает</option>
+        <option value="OFF">OFF — форма временно отключена</option>
+    </select>
+
+    <label>Процент готовности главы (0–100)</label>
+    <input type="number" id="p-percent" min="0" max="100" value="0">
+
+    <label>Пункты лога разработки (до 10 штук)</label>
+    <div id="p-items"></div>
+    <button class="action" onclick="addProgressItem()" type="button">+ Добавить пункт</button>
+    <div class="counter" id="p-counter">0 / 10</div>
+
+    <div class="output">
+        <button class="action" onclick="generateProgressJSON()" type="button">Сгенерировать progress.json</button>
+        <textarea id="p-output" readonly placeholder="Здесь появится готовый JSON..."></textarea>
+        <button class="action" onclick="copyOutput('p-output')" type="button">Скопировать</button>
+    </div>
+</div>
+
+<!-- ============ МАТЕРИАЛЫ ============ -->
+<div id="panel-media" class="panel">
+    <div class="note">
+        Загрузи текущий <code>media.json</code> (кнопкой ниже), чтобы отредактировать
+        существующий список, или начни с пустого — тогда id будут пронумерованы заново
+        начиная с 1 в том порядке, как ты добавляешь записи.
+    </div>
+    <input type="file" id="m-load-file" accept="application/json" onchange="loadMediaFile(event)">
+
+    <h3 style="margin-top:24px;">Новая запись</h3>
+    <div class="field-grid">
+        <div>
+            <label>Путь к картинке (RU) — например assets/img/photo7.webp</label>
+            <input type="text" id="m-img-ru" placeholder="assets/img/photo7.webp">
+        </div>
+        <div>
+            <label>Путь к картинке (EN) — например assets/img/en/photo7.webp</label>
+            <input type="text" id="m-img-en" placeholder="assets/img/en/photo7.webp">
+        </div>
+    </div>
+    <label>Описание (RU)</label>
+    <textarea id="m-desc-ru"></textarea>
+    <label>Описание (EN)</label>
+    <textarea id="m-desc-en"></textarea>
+
+    <button class="action" onclick="addMediaItem()" type="button">+ Добавить в список</button>
+
+    <h3 style="margin-top:24px;">Текущий список</h3>
+    <div id="m-items"></div>
+
+    <div class="output">
+        <button class="action" onclick="generateMediaJSON()" type="button">Сгенерировать media.json</button>
+        <textarea id="m-output" readonly placeholder="Здесь появится готовый JSON..."></textarea>
+        <button class="action" onclick="copyOutput('m-output')" type="button">Скопировать</button>
+    </div>
+</div>
+
+<script>
+// ==========================================================
+//  ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК
+// ==========================================================
+function switchPanel(name) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + name).classList.add('active');
+    event.target.classList.add('active');
+}
+
+// ==========================================================
+//  ПРОГРЕСС
+// ==========================================================
+let progressItems = [];
+
+function renderProgressItems() {
+    const container = document.getElementById('p-items');
+    container.innerHTML = '';
+    progressItems.forEach((text, i) => {
+        const row = document.createElement('div');
+        row.className = 'item-row';
+        row.innerHTML = `<div class="content"></div>`;
+        row.querySelector('.content').textContent = text;
+        const btn = document.createElement('button');
+        btn.className = 'remove';
+        btn.textContent = 'Убрать';
+        btn.onclick = () => { progressItems.splice(i, 1); renderProgressItems(); };
+        row.appendChild(btn);
+        container.appendChild(row);
+    });
+    const counter = document.getElementById('p-counter');
+    counter.textContent = `${progressItems.length} / 10`;
+    counter.classList.toggle('warn', progressItems.length >= 10);
+}
+
+function addProgressItem() {
+    if (progressItems.length >= 10) {
+        alert('Уже 10 пунктов — это максимум для главной страницы. Убери один, чтобы добавить новый.');
+        return;
+    }
+    const text = prompt('Текст пункта (можно писать сразу на двух языках в одной строке, как раньше):');
+    if (text && text.trim()) {
+        progressItems.push(text.trim());
+        renderProgressItems();
+    }
+}
+
+function generateProgressJSON() {
+    const status = document.getElementById('p-status').value;
+    const percent = parseInt(document.getElementById('p-percent').value, 10) || 0;
+    const data = { status, percent, items: progressItems };
+    document.getElementById('p-output').value = JSON.stringify(data, null, 2);
+}
+
+// ==========================================================
+//  МАТЕРИАЛЫ
+// ==========================================================
+let mediaItems = [];
+
+function renderMediaItems() {
+    const container = document.getElementById('m-items');
+    container.innerHTML = '';
+    mediaItems.forEach((item, i) => {
+        const row = document.createElement('div');
+        row.className = 'item-row';
+        const content = document.createElement('div');
+        content.className = 'content';
+        content.textContent = `#${item.id}  ${item.imgRu}  |  ${item.descRu.slice(0, 60)}${item.descRu.length > 60 ? '…' : ''}`;
+        const btn = document.createElement('button');
+        btn.className = 'remove';
+        btn.textContent = 'Убрать';
+        btn.onclick = () => { mediaItems.splice(i, 1); renumberMedia(); renderMediaItems(); };
+        row.appendChild(content);
+        row.appendChild(btn);
+        container.appendChild(row);
+    });
+}
+
+function renumberMedia() {
+    mediaItems.forEach((item, i) => { item.id = i + 1; });
+}
+
+function addMediaItem() {
+    const imgRu = document.getElementById('m-img-ru').value.trim();
+    const imgEn = document.getElementById('m-img-en').value.trim();
+    const descRu = document.getElementById('m-desc-ru').value.trim();
+    const descEn = document.getElementById('m-desc-en').value.trim();
+
+    if (!imgRu || !descRu) {
+        alert('Заполни хотя бы путь к RU-картинке и RU-описание.');
+        return;
+    }
+
+    mediaItems.push({
+        id: mediaItems.length + 1,
+        imgRu, imgEn, descRu, descEn
+    });
+
+    document.getElementById('m-img-ru').value = '';
+    document.getElementById('m-img-en').value = '';
+    document.getElementById('m-desc-ru').value = '';
+    document.getElementById('m-desc-en').value = '';
+
+    renderMediaItems();
+}
+
+function loadMediaFile(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+        try {
+            const parsed = JSON.parse(reader.result);
+            if (!Array.isArray(parsed)) throw new Error('Ожидался массив');
+            mediaItems = parsed;
+            renderMediaItems();
+            alert(`Загружено записей: ${mediaItems.length}`);
+        } catch (e) {
+            alert('Не удалось прочитать файл: ' + e.message);
+        }
+    };
+    reader.readAsText(file);
+}
+
+function generateMediaJSON() {
+    document.getElementById('m-output').value = JSON.stringify(mediaItems, null, 2);
+}
+
+// ==========================================================
+//  ОБЩЕЕ
+// ==========================================================
+function copyOutput(id) {
+    const el = document.getElementById(id);
+    el.select();
+    document.execCommand('copy');
+}
+
+renderProgressItems();
+renderMediaItems();
+</script>
+
+</body>
+</html>

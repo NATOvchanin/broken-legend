@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "imgRu": "assets/img/photo1.webp",
+    "imgEn": "assets/img/en/photo1.webp",
+    "descRu": "Talebreak (Сломанная сказка) — визуальная новелла с элементами интерактивных игр, повествующая о детском кукольном спектакле, где поставлена великая история героев, побеждающих зло... Но что, если жители знают, какую роль им суждено сыграть? И каково жить, понимая что с приближающимся финалом ты просто... Исчезнешь?",
+    "descEn": "Talebreak — a visual novel with interactive elements, telling the story of a children's puppet theater where a great tale of heroes defeating evil is staged... But what if the inhabitants know the role they are destined to play? And what is it like to live knowing that with the approaching finale, you simply... vanish?"
+  },
+  {
+    "id": 2,
+    "imgRu": "assets/img/photo2.webp",
+    "imgEn": "assets/img/en/photo2.webp",
+    "descRu": "Игра даёт условно нелинейное (с кучей выборов и сцен, но с линейным общим сюжетом) прохождение, завязанное на карточных боях и мелких мини-играх, не обязательных для внимательных игроков, скопивших достаточно игровой валюты. Кроме того в игре заготовлен набор случайных встреч и секретных событий, увеличивающих реиграбельность.",
+    "descEn": "The game offers a conditionally non-linear (with plenty of choices and scenes, but a linear overall story) experience, tied to card battles and small mini-games, not mandatory for attentive players who have saved enough in-game currency. The game also features a set of random encounters and secret events, increasing replayability."
+  },
+  {
+    "id": 3,
+    "imgRu": "assets/img/photo3.webp",
+    "imgEn": "assets/img/en/photo3.webp",
+    "descRu": "Планируется к выпуску 6 эпизодов, развивающих общий сюжет и рассказывающих свои локальные истории. Каждый будет выпущен отдельно. В данный момент идёт работа над первым. Игра будет полностью бесплатной, единственная валюта, которая от вас нужна - ваше внимание.",
+    "descEn": "Planned for release in 6 episodes, each developing the overall plot and telling their own local stories. Each will be released separately. Work on the first episode is currently in progress. The game will be completely free; the only currency required from you is your attention."
+  },
+  {
+    "id": 4,
+    "imgRu": "assets/img/photo4.webp",
+    "imgEn": "assets/img/en/photo4.webp",
+    "descRu": "Talebreak содержит в себе РПГ-составляющую, выраженную в ограниченном количестве жизней на эпизод, показателях команды, системе торговли, репутации. Некоторые выборы, сделанные в процессе прохождения, игра запоминает вплоть до финала.",
+    "descEn": "Talebreak contains an RPG component, expressed in a limited number of lives per episode, team stats, a trading system, and reputation. Some choices made during the playthrough are remembered by the game all the way to the finale."
+  },
+  {
+    "id": 5,
+    "imgRu": "assets/img/photo5.webp",
+    "imgEn": "assets/img/en/photo5.webp",
+    "descRu": "Вы не играете за героев, вы - интерактивный зритель, наблюдающий за их приключением и принимающий все решения. Вы вольны пройти этот длинный путь так, как вам нравится. Но когда вы встретитесь с финальным судьёй... Вас заставят ответить за каждое свершённое действие.",
+    "descEn": "You do not play as the heroes; you are an interactive spectator watching their adventure and making all the decisions. You are free to walk this long path as you like. But when you meet the final judge... You will be forced to answer for every action you have taken."
+  },
+  {
+    "id": 6,
+    "imgRu": "assets/img/photo6.webp",
+    "imgEn": "assets/img/en/photo6.webp",
+    "descRu": "Станет ли команда теми героями, о которых написано в пророчестве: добрые, честные, благородные борцы со злом. Или же они решат пойти против судьбы, что создала этот мир, в погоне за силой, богатством и развлечением?..",
+    "descEn": "Will the team become the heroes written in the prophecy: good, honest, noble fighters against evil? Or will they decide to go against the fate that created this world, in pursuit of power, wealth, and entertainment?.."
+  }
+]

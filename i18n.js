@@ -42,20 +42,6 @@
             legend7: "В конце сего огромного пути,\nДостигнув шпиля, что стремится к облакам,\nОни увидят и того, кого найти\nНемыслимо, он недоступен слабакам.",
             legend8: "Лорд смерти, самый сильный враг,\nС которым бой не будет лёгким никогда.\nОн всё же угодил в конце в просак,\nИ жизнь его уж больно коротка.",
             legend9: "Он будет мёртв и дело его проиграет.\nНам всем герои счастье возвратят.\nМы ждём, этих скрижалей миг настанет,\nКогда текста легенд нас всех освободят.",
-            // Медиа
-            mediaDesc1: "Talebreak (Сломанная сказка) — визуальная новелла с элементами интерактивных игр, повествующая о детском кукольном спектакле, где поставлена великая история героев, побеждающих зло... Но что, если жители знают, какую роль им суждено сыграть? И каково жить, понимая что с приближающимся финалом ты просто... Исчезнешь?",
-            mediaDesc2: "Игра даёт условно нелинейное (с кучей выборов и сцен, но с линейным общим сюжетом) прохождение, завязанное на карточных боях и мелких мини-играх, не обязательных для внимательных игроков, скопивших достаточно игровой валюты. Кроме того в игре заготовлен набор случайных встреч и секретных событий, увеличивающих реиграбельность.",
-            mediaDesc3: "Планируется к выпуску 6 эпизодов, развивающих общий сюжет и рассказывающих свои локальные истории. Каждый будет выпущен отдельно. В данный момент идёт работа над первым. Игра будет полностью бесплатной, единственная валюта, которая от вас нужна - ваше внимание.",
-            mediaDesc4: "Talebreak содержит в себе РПГ-составляющую, выраженную в ограниченном количестве жизней на эпизод, показателях команды, системе торговли, репутации. Некоторые выборы, сделанные в процессе прохождения, игра запоминает вплоть до финала.",
-            mediaDesc5: "Вы не играете за героев, вы - интерактивный зритель, наблюдающий за их приключением и принимающий все решения. Вы вольны пройти этот длинный путь так, как вам нравится. Но когда вы встретитесь с финальным судьёй... Вас заставят ответить за каждое свершённое действие.",
-            mediaDesc6: "Станет ли команда теми героями, о которых написано в пророчестве: добрые, честные, благородные борцы со злом. Или же они решат пойти против судьбы, что создала этот мир, в погоне за силой, богатством и развлечением?..",
-            // Картинки для медиа
-            mediaImg1: "assets/img/photo1.webp",
-            mediaImg2: "assets/img/photo2.webp",
-            mediaImg3: "assets/img/photo3.webp",
-            mediaImg4: "assets/img/photo4.webp",
-            mediaImg5: "assets/img/photo5.webp",
-            mediaImg6: "assets/img/photo6.webp"
         };
 
         const langEn = {
@@ -92,20 +78,6 @@
             legend7: "At the end of this long road,\nUpon the spire that scrapes the sky,\nThey'll face the one who bears the load,\nThe one no weakling dares defy.",
             legend8: "The Lord of Death, the strongest foe,\nWill bring a battle hard and long,\nBut he will fall, as legends show,\nAnd end his reign — his power gone.",
             legend9: "He'll be no more, his cause is lost,\nAnd joy returns to one and all.\nWe wait for when the prophecy is crossed,\nAnd ancient words at last set us free.",
-            // Media (English translations)
-            mediaDesc1: "Talebreak — a visual novel with interactive elements, telling the story of a children's puppet theater where a great tale of heroes defeating evil is staged... But what if the inhabitants know the role they are destined to play? And what is it like to live knowing that with the approaching finale, you simply... vanish?",
-            mediaDesc2: "The game offers a conditionally non-linear (with plenty of choices and scenes, but a linear overall story) experience, tied to card battles and small mini-games, not mandatory for attentive players who have saved enough in-game currency. The game also features a set of random encounters and secret events, increasing replayability.",
-            mediaDesc3: "Planned for release in 6 episodes, each developing the overall plot and telling their own local stories. Each will be released separately. Work on the first episode is currently in progress. The game will be completely free; the only currency required from you is your attention.",
-            mediaDesc4: "Talebreak contains an RPG component, expressed in a limited number of lives per episode, team stats, a trading system, and reputation. Some choices made during the playthrough are remembered by the game all the way to the finale.",
-            mediaDesc5: "You do not play as the heroes; you are an interactive spectator watching their adventure and making all the decisions. You are free to walk this long path as you like. But when you meet the final judge... You will be forced to answer for every action you have taken.",
-            mediaDesc6: "Will the team become the heroes written in the prophecy: good, honest, noble fighters against evil? Or will they decide to go against the fate that created this world, in pursuit of power, wealth, and entertainment?..",
-            // Media images (English versions)
-            mediaImg1: "assets/img/en/photo1.webp",
-            mediaImg2: "assets/img/en/photo2.webp",
-            mediaImg3: "assets/img/en/photo3.webp",
-            mediaImg4: "assets/img/en/photo4.webp",
-            mediaImg5: "assets/img/en/photo5.webp",
-            mediaImg6: "assets/img/en/photo6.webp"
         };
 
         
@@ -142,10 +114,17 @@
             // Особый случай: прогресс-бар. Не подходит под общий цикл,
             // потому что текст в нём состоит из двух частей —
             // переводимой подписи и динамического процента,
-            // который приходит из progress.txt отдельно.
+            // который приходит из progress.json отдельно.
             const percentMatch = document.getElementById('progressDisplay').textContent.match(/\d+(?=%)/);
             if (percentMatch) {
                 document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + percentMatch[0] + '%';
+            }
+
+            // Особый случай: раздел "Материалы". Данные приходят
+            // из media.json (см. render.js), а не из этого словаря,
+            // поэтому не подходят под общий цикл выше.
+            if (typeof applyMediaLanguage === 'function') {
+                applyMediaLanguage(lang);
             }
         }
 

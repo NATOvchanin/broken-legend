@@ -37,28 +37,63 @@ function renderLegend() {
     });
 }
 
-function renderMedia() {
+// ==========================================================
+//  МАТЕРИАЛЫ: загрузка из media.json
+// ==========================================================
+// В отличие от легенды (фиксированный, заранее известный набор
+// строф), список скриншотов должен пополняться/сокращаться без
+// правки кода. Поэтому сами данные (картинки + RU/EN описания)
+// лежат не в content-data.js, а в media.json и подгружаются
+// через fetch — чтобы добавить/убрать скриншот, достаточно
+// отредактировать media.json и положить/удалить файл картинки,
+// ничего в HTML/JS трогать не нужно.
+
+let mediaItems = [];
+
+async function renderMedia() {
     const grid = document.getElementById('media-grid');
     if (!grid) return;
 
-    mediaData.forEach(item => {
+    try {
+        const response = await fetch('media.json');
+        mediaItems = await response.json();
+    } catch (e) {
+        console.log('Не удалось загрузить media.json:', e);
+        return;
+    }
+
+    mediaItems.forEach(item => {
         const mediaItem = document.createElement('div');
         mediaItem.className = 'media-item';
+        mediaItem.dataset.mediaId = item.id;
 
         const img = document.createElement('img');
-        img.src = `assets/img/photo${item.id}.webp`;
-        img.alt = `Скриншот ${item.id}`;
         img.className = 'clickable-img';
-        img.id = 'mediaImg' + item.id;
-        img.dataset.i18nSrc = 'mediaImg' + item.id;
+        img.alt = `Скриншот ${item.id}`;
 
         const desc = document.createElement('div');
         desc.className = 'desc';
-        desc.id = 'mediaDesc' + item.id;
-        desc.dataset.i18n = 'mediaDesc' + item.id;
 
         mediaItem.appendChild(img);
         mediaItem.appendChild(desc);
         grid.appendChild(mediaItem);
+    });
+}
+
+// Вызывается из setLanguage() в i18n.js — подставляет в уже
+// построенные .media-item нужный язык (картинку + описание).
+function applyMediaLanguage(lang) {
+    if (!mediaItems.length) return;
+
+    document.querySelectorAll('.media-item').forEach(el => {
+        const id = parseInt(el.dataset.mediaId, 10);
+        const item = mediaItems.find(m => m.id === id);
+        if (!item) return;
+
+        const img = el.querySelector('img');
+        const desc = el.querySelector('.desc');
+
+        img.src = lang === 'en' ? item.imgEn : item.imgRu;
+        desc.textContent = lang === 'en' ? item.descEn : item.descRu;
     });
 }
