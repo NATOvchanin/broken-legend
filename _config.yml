@@ -1,0 +1,14 @@
+title: Talebreak
+description: "Talebreak — визуальная новелла о кукольном спектакле, где герои сражаются со злом, зная, что после финала просто исчезнут."
+url: "https://natovchanin.github.io"
+baseurl: "/broken-legend"
+
+# Отключаем автогенерацию ленты/sitemap, которые нам не нужны —
+# сайт не блог, лишние файлы ни к чему.
+plugins: []
+
+# Файлы/папки, которые Jekyll не должен трогать при сборке
+exclude:
+  - admin.html
+  - worker.js
+  - README.md

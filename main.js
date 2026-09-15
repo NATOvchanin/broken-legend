@@ -69,16 +69,21 @@
         }
 
         async function loadProgress() {
+            const displayEl = document.getElementById('progressDisplay');
+            const logContainer = document.getElementById('progress-log');
+            // Прогресс-бар есть только на главной странице —
+            // на остальных страницах просто ничего не делаем.
+            if (!displayEl || !logContainer) return;
+
             try {
                 const response = await fetch('progress.json');
                 const data = await response.json();
 
                 if (typeof data.percent === 'number' && data.percent >= 0 && data.percent <= 100) {
                     const dict = currentLang === 'en' ? langEn : langRu;
-                    document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + data.percent + '%';
+                    displayEl.textContent = dict.progressLabel + ': ' + data.percent + '%';
                 }
 
-                const logContainer = document.getElementById('progress-log');
                 logContainer.innerHTML = '';
                 let hue = 0;
 
@@ -105,13 +110,12 @@
         let progressHue = 0;
 
         setInterval(() => {
-            progressHue = (progressHue + 1.2) % 360;
-
             const p = document.getElementById("progressDisplay");
+            if (!p) return; // на странице без прогресс-бара — просто ничего не делаем
 
+            progressHue = (progressHue + 1.2) % 360;
             p.style.color = `hsl(${progressHue},100%,60%)`;
             p.style.textShadow = `0 0 20px hsl(${progressHue},100%,60%)`;
-
         }, 50);
 
         
@@ -131,8 +135,8 @@
         }
 
         document.addEventListener('DOMContentLoaded', async function () {
-            // Принудительно устанавливаем русский язык перед загрузкой
-            currentLang = 'ru';
+            // currentLang уже установлен в i18n.js — либо из localStorage
+            // (если человек уже выбирал язык раньше), либо 'ru' по умолчанию.
 
             // Легенда строится синхронно из локальных данных (content-data.js).
             // Материалы — асинхронно, из media.json (см. render.js) — поэтому

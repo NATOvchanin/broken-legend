@@ -1,0 +1,14 @@
+---
+layout: base
+title: Связь
+description: "Свяжитесь с разработчиком Talebreak — отправьте отзыв, вопрос или идею."
+---
+<h2 id="contactTitle" data-i18n="contactTitle">Связь с разработчиком</h2>
+<p class="contact-text" id="contactDesc" data-i18n="contactDesc">Форма для отправки сообщений разработчику. Мнение, вопросы, контакты, что угодно - я всё читаю!</p>
+
+<div style="max-width: 600px; margin: 20px auto; text-align: left;">
+    <textarea id="feedbackText" data-i18n-placeholder="feedbackPlaceholder" rows="6" style="width: 100%; background: #111; color: #33ff33; border: 2px solid #33ff33; padding: 10px; font-family: 'Press Start 2P', cursive; font-size: 14px; resize: vertical; box-sizing: border-box;"></textarea>
+    <br>
+    <button onclick="sendFeedback()" style="background: #c0c0c0; color: #000; font-family: 'Press Start 2P', cursive; font-size: 14px; padding: 10px 20px; margin-top: 10px; border: 3px solid #fff; border-right-color: #808080; border-bottom-color: #808080; cursor: pointer;" id="sendBtn" data-i18n="sendBtn">Отправить</button>
+    <div id="feedbackStatus" style="margin-top: 10px; font-size: 14px;"></div>
+</div>

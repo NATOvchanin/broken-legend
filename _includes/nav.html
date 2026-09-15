@@ -1,0 +1,14 @@
+    <nav>
+        <a href="{{ '/' | relative_url }}" id="navHome" data-i18n="navHome"
+           class="{% if page.url == '/' %}active{% endif %}">Главная</a>
+        <a href="{{ '/legend.html' | relative_url }}" id="navLegend" data-i18n="navLegend"
+           class="{% if page.url == '/legend.html' %}active{% endif %}">Легенда</a>
+        <a href="{{ '/media.html' | relative_url }}" id="navMedia" data-i18n="navMedia"
+           class="{% if page.url == '/media.html' %}active{% endif %}">Материалы</a>
+        <a href="{{ '/actors.html' | relative_url }}" id="navActors" data-i18n="navActors"
+           class="{% if page.url == '/actors.html' %}active{% endif %}">Актёры</a>
+        <a href="{{ '/contact.html' | relative_url }}" id="navContact" data-i18n="navContact"
+           class="{% if page.url == '/contact.html' %}active{% endif %}">Связь</a>
+        <a href="{{ '/subscribe.html' | relative_url }}" id="navSubscribe" data-i18n="navSubscribe"
+           class="{% if page.url == '/subscribe.html' %}active{% endif %}">Подписаться</a>
+    </nav>

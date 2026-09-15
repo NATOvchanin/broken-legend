@@ -1,7 +1,12 @@
 // ==========================================================
 //  ЯЗЫК ПО УМОЛЧАНИЮ
 // ==========================================================
-        let currentLang = 'ru';
+        // Раньше язык хранился только в переменной и сбрасывался
+        // при каждой загрузке — не страшно было, пока весь сайт
+        // жил на одной странице. Теперь страниц несколько, и без
+        // localStorage язык обнулялся бы при каждом переходе
+        // по меню на многостраничном сайте.
+        let currentLang = localStorage.getItem('talebreak_lang') || 'ru';
 
         
 
@@ -91,6 +96,7 @@
         // в оба словаря (langRu / langEn) выше.
         function setLanguage(lang) {
             currentLang = lang;
+            localStorage.setItem('talebreak_lang', lang);
             const dict = lang === 'en' ? langEn : langRu;
 
             // Обычный текст: <тег data-i18n="ключ">
@@ -111,13 +117,18 @@
                 if (dict[key] !== undefined) el.placeholder = dict[key];
             });
 
-            // Особый случай: прогресс-бар. Не подходит под общий цикл,
-            // потому что текст в нём состоит из двух частей —
-            // переводимой подписи и динамического процента,
-            // который приходит из progress.json отдельно.
-            const percentMatch = document.getElementById('progressDisplay').textContent.match(/\d+(?=%)/);
-            if (percentMatch) {
-                document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + percentMatch[0] + '%';
+            // Особый случай: прогресс-бар. Есть только на главной
+            // странице — на остальных страницах элемента просто нет.
+            // Не подходит под общий цикл ещё и потому, что текст
+            // состоит из двух частей: переводимой подписи и
+            // динамического процента, который приходит из
+            // progress.json отдельно.
+            const progressEl = document.getElementById('progressDisplay');
+            if (progressEl) {
+                const percentMatch = progressEl.textContent.match(/\d+(?=%)/);
+                if (percentMatch) {
+                    progressEl.textContent = dict.progressLabel + ': ' + percentMatch[0] + '%';
+                }
             }
 
             // Особый случай: раздел "Материалы". Данные приходят
