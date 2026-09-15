@@ -1,0 +1,301 @@
+        /* Базовые стили */
+        body {
+            background-color: #111;
+            background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            color: #33ff33;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            position: relative;
+            font-style: normal;
+        }
+
+        /* Фильтр телевизора (без курсора внутри) */
+        #crt-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            mix-blend-mode: multiply;
+        }
+
+        /* --- ПИКСЕЛЬНЫЙ КУРСОР (СНОВА В BODY) --- */
+        html, body, * {
+            cursor: url('assets/cur.png') 3 1, auto !important;
+        }
+
+        a, button, .lang-btn, nav button, .clickable-img {
+            cursor: url('assets/cli.png') 3 1, pointer !important;
+        }
+
+        /* Заголовки */
+        h2 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 22px;
+            color: #ffffff;
+            text-shadow: 0 0 15px #33ff33;
+            margin: 40px 0 30px 0;
+            font-style: normal;
+        }
+
+        nav {
+            margin: 20px 0 30px 0;
+        }
+
+            nav button {
+                background: #c0c0c0;
+                color: #000000;
+                font-family: 'Press Start 2P', cursive;
+                font-size: 14px;
+                padding: 10px 20px;
+                margin: 5px;
+                cursor: pointer;
+                text-transform: uppercase;
+                border-top: 3px solid #ffffff;
+                border-left: 3px solid #ffffff;
+                border-right: 3px solid #808080;
+                border-bottom: 3px solid #808080;
+                border-radius: 0px;
+                outline: none;
+                font-style: normal;
+                position: relative;
+                z-index: 1; /* Чтобы кнопки были выше фильтра */
+            }
+
+                nav button:hover {
+                    background: #d0d0d0;
+                    border-top: 3px solid #ffffff;
+                    border-left: 3px solid #ffffff;
+                    border-right: 3px solid #808080;
+                    border-bottom: 3px solid #808080;
+                }
+
+                nav button:active {
+                    border-top: 3px solid #808080;
+                    border-left: 3px solid #808080;
+                    border-right: 3px solid #ffffff;
+                    border-bottom: 3px solid #ffffff;
+                    transform: translate(1px, 1px);
+                }
+
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+            font-size: 16px; /* ЕДИНЫЙ РАЗМЕР ШРИФТА ДЛЯ КОНТЕНТА */
+            line-height: 1.6;
+        }
+
+            .tab-content.active {
+                display: block;
+            }
+
+        .lang-btn {
+            background: #0055aa;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 12px;
+            color: #ffffff;
+            border: 2px solid #33ff33;
+            padding: 5px 15px;
+            cursor: pointer;
+            border-radius: 0px;
+            font-style: normal;
+            position: relative;
+            z-index: 1;
+        }
+
+            .lang-btn:hover {
+                background: #0077ee;
+            }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #33ff33;
+            cursor: pointer;
+        }
+
+        iframe, .progress-wrap {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .progress-text {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 40px;
+            text-shadow: 0 0 20px #33ff33;
+            margin-top: 40px;
+            font-style: normal;
+        }
+
+        a {
+            color: #33ff33;
+            text-decoration: none;
+            font-style: normal;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        #progress-log {
+            margin-top: 30px;
+            font-size: 16px;
+            line-height: 2;
+            text-shadow: 0 0 10px #33ff33;
+            font-style: normal;
+        }
+
+            #progress-log .log-item {
+                display: block;
+            }
+
+        /* ===========================
+           Стили для вкладки "Легенда"
+           =========================== */
+        .legend-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .legend-block {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+            align-items: flex-start; /* Картинка и текст прижимаются к ВЕРХНЕМУ краю */
+        }
+
+        .legend-text {
+            flex: 1;
+            font-size: 16px; /* Единый размер */
+            line-height: 2.2;
+            white-space: pre-line;
+        }
+
+        .legend-img {
+            flex: 0 0 400px; /* Было 250px, стало 400px */
+            width: 400px;
+        }
+
+            .legend-img img {
+                width: 100%;
+                height: auto;
+                border: 2px solid #33ff33;
+                cursor: pointer;
+            }
+
+        /* ===========================
+           Стили для вкладки "Актёры"
+           =========================== */
+        .actor-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .actor-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #33ff33;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+        }
+
+            .actor-card h3 {
+                font-family: 'Press Start 2P', cursive;
+                font-size: 16px;
+                color: #ffffff;
+                text-shadow: 0 0 10px #33ff33;
+                margin-bottom: 10px;
+                font-style: normal;
+            }
+
+            .actor-card p {
+                font-size: 16px; /* Единый размер */
+                line-height: 1.6;
+                margin: 0;
+                font-style: normal;
+            }
+
+        /* ===========================
+           Стили для вкладки "Материалы"
+           =========================== */
+        .media-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .media-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            gap: 15px;
+        }
+
+            .media-item img {
+                width: 100%;
+                height: auto;
+                border: 2px solid #33ff33;
+                cursor: pointer;
+            }
+
+            .media-item .desc {
+                font-size: 16px; /* Единый размер */
+                line-height: 1.6;
+                text-align: center;
+            }
+
+        /* ===========================
+           Стили для попапа (открытие картинок)
+           =========================== */
+        #image-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000; /* Чёрный фон без примесей */
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+            #image-popup.active {
+                display: flex;
+            }
+
+            #image-popup img {
+                width: 960px;
+                height: auto;
+                border: 4px solid #33ff33;
+                box-shadow: 0 0 30px rgba(51, 255, 51, 0.3);
+                pointer-events: none;
+                filter: none !important;
+            }
+
+        /* Остальные стили */
+        .contact-text {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    

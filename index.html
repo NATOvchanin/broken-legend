@@ -4,41 +4,246 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talebreak</title>
-    <style>
-        html, body, * {
-            cursor: url('assets/cur.png') 3 1, auto;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background-color: #000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Press Start 2P', cursive;
-            text-align: center;
-        }
-
-        .msg {
-            color: #ffd700;
-            text-shadow: 0 0 15px #ffd700;
-            font-size: 22px;
-            line-height: 1.8;
-            padding: 0 20px;
-        }
-
-        .msg.en {
-            margin-top: 40px;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="msg ru">ИДЁТ ОБНОВЛЕНИЕ САЙТА, ПОДОЖДИТЕ</div>
-    <div class="msg en">SITE IS BEING UPDATED, PLEASE WAIT</div>
+
+    <!-- Фильтр телевизора -->
+    <div id="crt-overlay"></div>
+
+    <!-- Язык -->
+    <div>
+        <button class="lang-btn" id="btnRu" onclick="setLanguage('ru')">РУС</button>
+        <button class="lang-btn" id="btnEn" onclick="setLanguage('en')">ENG</button>
+    </div>
+
+    <!-- Меню -->
+    <nav>
+        <button id="navHome" onclick="switchTab('home')">Главная</button>
+        <button id="navLegend" onclick="switchTab('legend')">Легенда</button>
+        <button id="navMedia" onclick="switchTab('media')">Материалы</button>
+        <button id="navActors" onclick="switchTab('actors')">Актёры</button>
+        <button id="navContact" onclick="switchTab('contact')">Связь</button>
+        <button id="navSubscribe" onclick="switchTab('subscribe')">Подписаться</button>
+    </nav>
+
+    <!-- Контент -->
+    <!-- Вкладка "Главная" -->
+    <div id="home" class="tab-content active">
+        <h2 id="homeTitle">Трейлер</h2>
+        <iframe id="trailerVideo" width="560" height="315" src="https://www.youtube.com/embed/lGth_xZWymo" frameborder="0" allowfullscreen></iframe>
+
+        <div class="progress-wrap">
+            <div class="progress-text" id="progressDisplay"></div>
+            <div id="progress-log"></div>
+        </div>
+    </div>
+
+    <!-- Вкладка "Легенда" -->
+    <div id="legend" class="tab-content">
+        <h2 id="legendTitle">Легенда о небесах</h2>
+        <div class="legend-wrapper">
+            <!-- Блок 1 -->
+            <div class="legend-block">
+                <div class="legend-text" id="legend1">
+                    Когда с небес сойдут,
+                    Герои, чьих имён не знаем мы,
+                    Они на помощь к нам придут,
+                    И защитят наш мир от тьмы.
+                </div>
+                <div class="legend-img" style="transform: translateY(-10px);">
+                    <img src="assets/img/legend1.png" alt="Строфа 1" class="clickable-img">
+                </div>
+            </div>
+
+            <!-- Блок 2 -->
+            <div class="legend-block">
+                <div class="legend-text" id="legend2">
+                    По свиткам, что храним веками,
+                    Известно, у них сильный дух.
+                    Вдвоём, своими же руками
+                    Убьют того, чей свет потух.
+                </div>
+                <div class="legend-img" style="transform: translateY(-20px);">
+                    <img src="assets/img/legend2.png" alt="Строфа 2" class="clickable-img">
+                </div>
+            </div>
+
+            <!-- Блок 3 -->
+            <div class="legend-block">
+                <div class="legend-text" id="legend3">
+                    Очистив земли королевства,
+                    От нечисти, что из болот встаёт,
+                    Мечом закончат и те зверства,
+                    Которые свободы лорд ведёт.
+                </div>
+                <div class="legend-img" style="transform: translateY(-15px);">
+                    <img src="assets/img/legend3.png" alt="Строфа 3" class="clickable-img">
+                </div>
+            </div>
+
+            <!-- Блок 4 -->
+            <div class="legend-block">
+                <div class="legend-text" id="legend4">
+                    В союз вступив с самими небесами
+                    Они пустыню обойдут.
+                    И над песками став князцами,
+                    На земли за стенами попадут.
+                </div>
+                <div class="legend-img" style="transform: translateY(-10px);">
+                    <img src="assets/img/legend4.png" alt="Строфа 4" class="clickable-img">
+                </div>
+            </div>
+
+            <!-- Блок 5 -->
+            <div class="legend-block">
+                <div class="legend-text" id="legend5">
+                    Когда последний город зла
+                    Будет разрушен их словами.
+                    Руинам уж не будет и числа,
+                    Ведь джунгли станут чёрными дровами.
+                </div>
+                <div class="legend-img" style="transform: translateY(0px);">
+                    <img src="assets/img/legend5.png" alt="Строфа 5" class="clickable-img">
+                </div>
+            </div>
+
+            <!-- Блок 6 -->
+            <div class="legend-block">
+                <div class="legend-text" id="legend6">
+                    Смотритель тьмы, что плёткой бьёт рабам по шеям,
+                    В тяжёлой битве с силой света вступит там.
+                    Отправься же к своим поганым холуям!
+                    Ведь место лишь в могиле заготовано плутам!
+                </div>
+                <div class="legend-img" style="transform: translateY(60px);">
+                    <img src="assets/img/legend6.png" alt="Строфа 6" class="clickable-img">
+                </div>
+            </div>
+
+            <!-- Блок 7 -->
+            <div class="legend-block">
+                <div class="legend-text" id="legend7">
+                    В конце сего огромного пути,
+                    Достигнув шпиля, что стремится к облакам,
+                    Они увидят и того, кого найти
+                    Немыслимо, он недоступен слабакам.
+                </div>
+                <div class="legend-img" style="transform: translateY(5px);">
+                    <img src="assets/img/legend7.png" alt="Строфа 7" class="clickable-img">
+                </div>
+            </div>
+
+            <!-- Блок 8 -->
+            <div class="legend-block">
+                <div class="legend-text" id="legend8">
+                    Лорд смерти, самый сильный враг,
+                    С которым бой не будет лёгким никогда.
+                    Он всё же угодил в конце в просак,
+                    И жизнь его уж больно коротка.
+                </div>
+                <div class="legend-img" style="transform: translateY(15px);">
+                    <img src="assets/img/legend8.png" alt="Строфа 8" class="clickable-img">
+                </div>
+            </div>
+
+            <!-- Блок 9 -->
+            <div class="legend-block">
+                <div class="legend-text" id="legend9">
+                    Он будет мёртв и дело его проиграет.
+                    Нам всем герои счастье возвратят.
+                    Мы ждём, этих скрижалей миг настанет,
+                    Когда текста легенд нас всех освободят.
+                </div>
+                <div class="legend-img" style="transform: translateY(40px);">
+                    <img src="assets/img/legend9.png" alt="Строфа 9" class="clickable-img">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вкладка "Материалы" -->
+    <div id="media" class="tab-content">
+        <h2 id="mediaTitle">Скриншоты и концепты</h2>
+        <div class="media-grid">
+            <div class="media-item">
+                <img src="assets/img/photo1.png" alt="Скриншот 1" class="clickable-img" id="mediaImg1">
+                <div class="desc" id="mediaDesc1">Talebreak (Сломанная сказка) — визуальная новелла с элементами интерактивных игр, повествующая о детском кукольном спектакле, где поставлена великая история героев, побеждающих зло... Но что, если жители знают, какую роль им суждено сыграть? И каково жить, понимая что с приближающимся финалом ты просто... Исчезнешь?</div>
+            </div>
+            <div class="media-item">
+                <img src="assets/img/photo2.png" alt="Скриншот 2" class="clickable-img" id="mediaImg2">
+                <div class="desc" id="mediaDesc2">Игра даёт условно нелинейное (с кучей выборов и сцен, но с линейным общим сюжетом) прохождение, завязанное на карточных боях и мелких мини-играх, не обязательных для внимательных игроков, скопивших достаточно игровой валюты. Кроме того в игре заготовлен набор случайных встреч и секретных событий, увеличивающих реиграбельность.</div>
+            </div>
+            <div class="media-item">
+                <img src="assets/img/photo3.png" alt="Скриншот 3" class="clickable-img" id="mediaImg3">
+                <div class="desc" id="mediaDesc3">Планируется к выпуску 6 эпизодов, развивающих общий сюжет и рассказывающих свои локальные истории. Каждый будет выпущен отдельно. В данный момент идёт работа над первым. Игра будет полностью бесплатной, единственная валюта, которая от вас нужна - ваше внимание.</div>
+            </div>
+            <div class="media-item">
+                <img src="assets/img/photo4.png" alt="Скриншот 4" class="clickable-img" id="mediaImg4">
+                <div class="desc" id="mediaDesc4">Talebreak содержит в себе РПГ-составляющую, выраженную в ограниченном количестве жизней на эпизод, показателях команды, системе торговли, репутации. Некоторые выборы, сделанные в процессе прохождения, игра запоминает вплоть до финала.</div>
+            </div>
+            <div class="media-item">
+                <img src="assets/img/photo5.png" alt="Скриншот 5" class="clickable-img" id="mediaImg5">
+                <div class="desc" id="mediaDesc5">Вы не играете за героев, вы - интерактивный зритель, наблюдающий за их приключением и принимающий все решения. Вы вольны пройти этот длинный путь так, как вам нравится. Но когда вы встретитесь с финальным судьёй... Вас заставят ответить за каждое свершённое действие.</div>
+            </div>
+            <div class="media-item">
+                <img src="assets/img/photo6.png" alt="Скриншот 6" class="clickable-img" id="mediaImg6">
+                <div class="desc" id="mediaDesc6">Станет ли команда теми героями, о которых написано в пророчестве: добрые, честные, благородные борцы со злом. Или же они решат пойти против судьбы, что создала этот мир, в погоне за силой, богатством и развлечением?..</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вкладка "Актёры" -->
+    <div id="actors" class="tab-content">
+        <h2 id="actorsTitle">Главные герои</h2>
+        <div class="actor-list">
+            <div class="actor-card">
+                <h3 id="actor1Title">Рыцарь</h3>
+                <p id="actor1Desc">Воин в сверкающих доспехах, чье лицо скрыто. Жадный и циничный, но способный на благородство.</p>
+            </div>
+            <div class="actor-card">
+                <h3 id="actor2Title">Лекарь</h3>
+                <p id="actor2Desc">Девушка в зелёной мантии, с каштановыми волосами и добрым сердцем. Пугливая, но верная спутница.</p>
+            </div>
+            <div class="actor-card" style="border-color: #ff0033; padding-top: 115px;">
+                <p id="actor3Desc" style="color: #ff0033; text-shadow: 0 0 10px #ff0033;">И возможно, кто-то ещё?..</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вкладка "Связь" -->
+    <div id="contact" class="tab-content">
+        <h2 id="contactTitle">Связь с разработчиком</h2>
+        <p class="contact-text" id="contactDesc">Форма для отправки сообщений разработчику. Мнение, вопросы, контакты, что угодно - я всё читаю!</p>
+
+        <div style="max-width: 600px; margin: 20px auto; text-align: left;">
+            <textarea id="feedbackText" rows="6" style="width: 100%; background: #111; color: #33ff33; border: 2px solid #33ff33; padding: 10px; font-family: 'Press Start 2P', cursive; font-size: 14px; resize: vertical; box-sizing: border-box;"></textarea>
+            <br>
+            <button onclick="sendFeedback()" style="background: #c0c0c0; color: #000; font-family: 'Press Start 2P', cursive; font-size: 14px; padding: 10px 20px; margin-top: 10px; border: 3px solid #fff; border-right-color: #808080; border-bottom-color: #808080; cursor: pointer;" id="sendBtn">Отправить</button>
+            <div id="feedbackStatus" style="margin-top: 10px; font-size: 14px;"></div>
+        </div>
+    </div>
+
+    <!-- Вкладка "Подписаться" -->
+    <div id="subscribe" class="tab-content">
+        <h2 id="subTitle">Следите за разработкой</h2>
+        <div style="font-size: 18px; line-height: 2.2;">
+            <a href="https://gamejolt.com/games/talebreak/1083144" target="_blank">GameJolt</a><br>
+            <a href="https://natovchanin.itch.io/talebreak" target="_blank">Itch.io</a><br>
+            <a href="https://vkplay.ru/play/game/talebreak-48924/" target="_blank">VK Play</a><br>
+            <a href="https://t.me/talebreak" target="_blank">Telegram</a>
+        </div>
+    </div>
+
+    <!-- Попап для просмотра картинок (без фильтра) -->
+    <div id="image-popup" onclick="closePopup()">
+        <img id="popup-image" src="" alt="Увеличенное изображение">
+    </div>
+
+    
+    <script src="i18n.js"></script>
+    <script src="tabs.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
