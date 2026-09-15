@@ -146,6 +146,13 @@
             // Принудительно устанавливаем русский язык перед загрузкой
             currentLang = 'ru';
 
+            // Строим блоки "Легенда" и "Материалы" из данных
+            // (см. content-data.js / render.js), затем сразу
+            // подставляем тексты — до этого момента контейнеры пустые.
+            renderLegend();
+            renderMedia();
+            setLanguage(currentLang);
+
             const images = document.querySelectorAll('.clickable-img');
             images.forEach(img => {
                 img.addEventListener('click', function (e) {

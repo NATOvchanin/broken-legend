@@ -50,12 +50,12 @@
             mediaDesc5: "Вы не играете за героев, вы - интерактивный зритель, наблюдающий за их приключением и принимающий все решения. Вы вольны пройти этот длинный путь так, как вам нравится. Но когда вы встретитесь с финальным судьёй... Вас заставят ответить за каждое свершённое действие.",
             mediaDesc6: "Станет ли команда теми героями, о которых написано в пророчестве: добрые, честные, благородные борцы со злом. Или же они решат пойти против судьбы, что создала этот мир, в погоне за силой, богатством и развлечением?..",
             // Картинки для медиа
-            mediaImg1: "assets/img/photo1.png",
-            mediaImg2: "assets/img/photo2.png",
-            mediaImg3: "assets/img/photo3.png",
-            mediaImg4: "assets/img/photo4.png",
-            mediaImg5: "assets/img/photo5.png",
-            mediaImg6: "assets/img/photo6.png"
+            mediaImg1: "assets/img/photo1.webp",
+            mediaImg2: "assets/img/photo2.webp",
+            mediaImg3: "assets/img/photo3.webp",
+            mediaImg4: "assets/img/photo4.webp",
+            mediaImg5: "assets/img/photo5.webp",
+            mediaImg6: "assets/img/photo6.webp"
         };
 
         const langEn = {
@@ -100,12 +100,12 @@
             mediaDesc5: "You do not play as the heroes; you are an interactive spectator watching their adventure and making all the decisions. You are free to walk this long path as you like. But when you meet the final judge... You will be forced to answer for every action you have taken.",
             mediaDesc6: "Will the team become the heroes written in the prophecy: good, honest, noble fighters against evil? Or will they decide to go against the fate that created this world, in pursuit of power, wealth, and entertainment?..",
             // Media images (English versions)
-            mediaImg1: "assets/img/en/photo1.png",
-            mediaImg2: "assets/img/en/photo2.png",
-            mediaImg3: "assets/img/en/photo3.png",
-            mediaImg4: "assets/img/en/photo4.png",
-            mediaImg5: "assets/img/en/photo5.png",
-            mediaImg6: "assets/img/en/photo6.png"
+            mediaImg1: "assets/img/en/photo1.webp",
+            mediaImg2: "assets/img/en/photo2.webp",
+            mediaImg3: "assets/img/en/photo3.webp",
+            mediaImg4: "assets/img/en/photo4.webp",
+            mediaImg5: "assets/img/en/photo5.webp",
+            mediaImg6: "assets/img/en/photo6.webp"
         };
 
         
@@ -113,72 +113,40 @@
 // ==========================================================
 //  ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА
 // ==========================================================
+        // Универсальный проход по всем переводимым элементам.
+        // Чтобы добавить новый текст — не трогаем эту функцию,
+        // а просто добавляем data-i18n="ключ" в HTML и сам ключ
+        // в оба словаря (langRu / langEn) выше.
         function setLanguage(lang) {
             currentLang = lang;
             const dict = lang === 'en' ? langEn : langRu;
 
-            // Заголовки и тексты
-            document.getElementById('homeTitle').textContent = dict.homeTitle;
-            document.getElementById('legendTitle').textContent = dict.legendTitle;
-            document.getElementById('mediaTitle').textContent = dict.mediaTitle;
-            document.getElementById('actorsTitle').textContent = dict.actorsTitle;
-            document.getElementById('contactTitle').textContent = dict.contactTitle;
-            document.getElementById('contactDesc').textContent = dict.contactDesc;
-            document.getElementById('sendBtn').textContent = dict.sendBtn;
-            document.getElementById('subTitle').textContent = dict.subTitle;
+            // Обычный текст: <тег data-i18n="ключ">
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (dict[key] !== undefined) el.textContent = dict[key];
+            });
 
-            // Актёры
-            document.getElementById('actor1Title').textContent = dict.actor1Title;
-            document.getElementById('actor1Desc').textContent = dict.actor1Desc;
-            document.getElementById('actor2Title').textContent = dict.actor2Title;
-            document.getElementById('actor2Desc').textContent = dict.actor2Desc;
-            document.getElementById('actor3Desc').textContent = dict.actor3Desc;
+            // Атрибут src (картинки, видео): <тег data-i18n-src="ключ">
+            document.querySelectorAll('[data-i18n-src]').forEach(el => {
+                const key = el.dataset.i18nSrc;
+                if (dict[key] !== undefined) el.src = dict[key];
+            });
 
-            // Легенда
-            document.getElementById('legend1').textContent = dict.legend1;
-            document.getElementById('legend2').textContent = dict.legend2;
-            document.getElementById('legend3').textContent = dict.legend3;
-            document.getElementById('legend4').textContent = dict.legend4;
-            document.getElementById('legend5').textContent = dict.legend5;
-            document.getElementById('legend6').textContent = dict.legend6;
-            document.getElementById('legend7').textContent = dict.legend7;
-            document.getElementById('legend8').textContent = dict.legend8;
-            document.getElementById('legend9').textContent = dict.legend9;
+            // Плейсхолдер: <тег data-i18n-placeholder="ключ">
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.dataset.i18nPlaceholder;
+                if (dict[key] !== undefined) el.placeholder = dict[key];
+            });
 
-            // Навигация (кнопки меню)
-            document.getElementById('navHome').textContent = dict.navHome;
-            document.getElementById('navLegend').textContent = dict.navLegend;
-            document.getElementById('navMedia').textContent = dict.navMedia;
-            document.getElementById('navActors').textContent = dict.navActors;
-            document.getElementById('navContact').textContent = dict.navContact;
-            document.getElementById('navSubscribe').textContent = dict.navSubscribe;
-
-            // Прогресс
+            // Особый случай: прогресс-бар. Не подходит под общий цикл,
+            // потому что текст в нём состоит из двух частей —
+            // переводимой подписи и динамического процента,
+            // который приходит из progress.txt отдельно.
             const percentMatch = document.getElementById('progressDisplay').textContent.match(/\d+(?=%)/);
             if (percentMatch) {
                 document.getElementById('progressDisplay').textContent = dict.progressLabel + ': ' + percentMatch[0] + '%';
             }
-
-            // Материалы — тексты и картинки
-            document.getElementById('mediaDesc1').textContent = dict.mediaDesc1;
-            document.getElementById('mediaDesc2').textContent = dict.mediaDesc2;
-            document.getElementById('mediaDesc3').textContent = dict.mediaDesc3;
-            document.getElementById('mediaDesc4').textContent = dict.mediaDesc4;
-            document.getElementById('mediaDesc5').textContent = dict.mediaDesc5;
-            document.getElementById('mediaDesc6').textContent = dict.mediaDesc6;
-
-            document.getElementById('mediaImg1').src = dict.mediaImg1;
-            document.getElementById('mediaImg2').src = dict.mediaImg2;
-            document.getElementById('mediaImg3').src = dict.mediaImg3;
-            document.getElementById('mediaImg4').src = dict.mediaImg4;
-            document.getElementById('mediaImg5').src = dict.mediaImg5;
-            document.getElementById('mediaImg6').src = dict.mediaImg6;
-
-            // Обновляем трейлер
-            document.getElementById('trailerVideo').src = dict.trailerUrl;
-
-            // Обновляем плейсхолдер в форме
-            document.getElementById('feedbackText').placeholder = dict.feedbackPlaceholder;
         }
 
         
