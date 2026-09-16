@@ -52,6 +52,7 @@
             catEvents: "События",
             backToProps: "← Назад к декорациям",
             wipNotice: "Страница пока пустует. Заглядывай позже.",
+            mysteryText: "И возможно, кто-то ещё?..",
             progressLabel: "ПРОГРЕСС ПЕРВОЙ ГЛАВЫ",
             feedbackPlaceholder: "Твой текст... (до 15 000 символов)",
             // Легенда
@@ -105,6 +106,7 @@
             catEvents: "Events",
             backToProps: "← Back to props",
             wipNotice: "This page is still empty. Check back later.",
+            mysteryText: "And perhaps... someone else?..",
             progressLabel: "CHAPTER 1 PROGRESS",
             feedbackPlaceholder: "Your text... (up to 15,000 characters)",
             // Legend (English translation — revised)

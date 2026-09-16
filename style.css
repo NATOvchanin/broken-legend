@@ -31,7 +31,7 @@
             cursor: url('assets/cur.png') 3 1, auto !important;
         }
 
-        a, button, .lang-btn, .clickable-img {
+        a, a *, button, button *, .lang-btn, .clickable-img {
             cursor: url('assets/cli.png') 3 1, pointer !important;
         }
 
@@ -262,6 +262,30 @@
                 font-style: normal;
             }
 
+        /* Некликабельный "намёк" внизу декораций — реагирует на
+           наведение, но курсор остаётся обычным (не "нажимающим"),
+           потому что это не ссылка. */
+        .mystery-card {
+            max-width: 400px;
+            margin: 50px auto 0;
+            padding: 25px 20px;
+            border: 2px solid #ff0033;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+            .mystery-card:hover {
+                box-shadow: 0 0 20px #ff0033;
+                transform: translateY(-2px);
+            }
+
+            .mystery-card p {
+                margin: 0;
+                color: #ff0033;
+                text-shadow: 0 0 10px #ff0033;
+                font-size: 16px;
+                font-style: normal;
+            }
+
         /* ===========================
            Вики-страницы персонажей и событий
            =========================== */
@@ -306,16 +330,38 @@
         /* ===========================
            Главная: описание игры и тизеры
            =========================== */
+
+        /* Декоративная линия из тире во всю ширину экрана —
+           "пробивает" контейнер страницы насквозь (100vw). */
+        .dash-line {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            height: 14px;
+            background-image: repeating-linear-gradient(
+                to right,
+                #33ff33 0,
+                #33ff33 22px,
+                transparent 22px,
+                transparent 34px
+            );
+            opacity: 0.7;
+            filter: drop-shadow(0 0 4px #33ff33);
+        }
+
         .about-block {
             max-width: 800px;
-            margin: 40px auto;
+            margin: 30px auto;
             padding: 0 20px;
         }
 
         .about-text {
             font-size: 16px;
             line-height: 1.8;
-            text-align: left;
+            text-align: center;
             /* \n\n в тексте словаря превращаются в реальные абзацы */
             white-space: pre-line;
         }
@@ -337,7 +383,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 300px;
+            width: 100%;
+            max-width: 700px;
             gap: 12px;
         }
 

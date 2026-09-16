@@ -8,16 +8,16 @@
         "slug": "valias",
         "nameRu": "Валиас",
         "nameEn": "Valias",
-        "teaserRu": "Рыцарь в сверкающих доспехах, чьё лицо скрыто. Жадный и циничный, но способный на благородство.",
-        "teaserEn": "A knight in gleaming armor, his face hidden. Greedy and cynical, yet capable of nobility.",
+        "teaserRu": "",
+        "teaserEn": "",
         "img": "assets/img/wiki/valias.webp"
       },
       {
         "slug": "lily",
         "nameRu": "Лили",
         "nameEn": "Lily",
-        "teaserRu": "Девушка в зелёной мантии, с каштановыми волосами и добрым сердцем. Пугливая, но верная спутница.",
-        "teaserEn": "A young woman in a green robe, with chestnut hair and a kind heart. Timid, but a loyal companion.",
+        "teaserRu": "",
+        "teaserEn": "",
         "img": "assets/img/wiki/lily.webp"
       }
     ]
@@ -82,6 +82,22 @@
         "teaserRu": "",
         "teaserEn": "",
         "img": "assets/img/wiki/miriam.webp"
+      },
+      {
+        "slug": "good-guys",
+        "nameRu": "Добряки",
+        "nameEn": "The Good Guys",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/good-guys.webp"
+      },
+      {
+        "slug": "villains",
+        "nameRu": "Злодеи",
+        "nameEn": "The Villains",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/villains.webp"
       }
     ]
   },
