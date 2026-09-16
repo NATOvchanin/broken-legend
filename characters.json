@@ -1,0 +1,119 @@
+[
+  {
+    "category": "main",
+    "categoryRu": "Главные герои",
+    "categoryEn": "Main heroes",
+    "entries": [
+      {
+        "slug": "valias",
+        "nameRu": "Валиас",
+        "nameEn": "Valias",
+        "teaserRu": "Рыцарь в сверкающих доспехах, чьё лицо скрыто. Жадный и циничный, но способный на благородство.",
+        "teaserEn": "A knight in gleaming armor, his face hidden. Greedy and cynical, yet capable of nobility.",
+        "img": "assets/img/wiki/valias.webp"
+      },
+      {
+        "slug": "lily",
+        "nameRu": "Лили",
+        "nameEn": "Lily",
+        "teaserRu": "Девушка в зелёной мантии, с каштановыми волосами и добрым сердцем. Пугливая, но верная спутница.",
+        "teaserEn": "A young woman in a green robe, with chestnut hair and a kind heart. Timid, but a loyal companion.",
+        "img": "assets/img/wiki/lily.webp"
+      }
+    ]
+  },
+  {
+    "category": "important",
+    "categoryRu": "Важные персонажи",
+    "categoryEn": "Important characters",
+    "entries": [
+      {
+        "slug": "klyaksonski",
+        "nameRu": "Мистер Кляксонски",
+        "nameEn": "Mister Klyaksonski",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/klyaksonski.webp"
+      },
+      {
+        "slug": "balbash",
+        "nameRu": "Бальбаш",
+        "nameEn": "Balbash",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/balbash.webp"
+      },
+      {
+        "slug": "king",
+        "nameRu": "Король",
+        "nameEn": "The King",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/king.webp"
+      },
+      {
+        "slug": "elaric",
+        "nameRu": "Эларик",
+        "nameEn": "Elaric",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/elaric.webp"
+      },
+      {
+        "slug": "vilyaz",
+        "nameRu": "Вильяз",
+        "nameEn": "Vilyaz",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/vilyaz.webp"
+      },
+      {
+        "slug": "grakk",
+        "nameRu": "Гракк",
+        "nameEn": "Grakk",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/grakk.webp"
+      },
+      {
+        "slug": "miriam",
+        "nameRu": "Мириам",
+        "nameEn": "Miriam",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/miriam.webp"
+      }
+    ]
+  },
+  {
+    "category": "events",
+    "categoryRu": "События",
+    "categoryEn": "Events",
+    "entries": [
+      {
+        "slug": "druid-trial",
+        "nameRu": "Проверка от друида",
+        "nameEn": "The Druid's Trial",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/druid-trial.webp"
+      },
+      {
+        "slug": "mighty-rangers",
+        "nameRu": "Могучие рейнджеры",
+        "nameEn": "The Mighty Rangers",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/mighty-rangers.webp"
+      },
+      {
+        "slug": "fisherman-interrogation",
+        "nameRu": "Допрос рыбака",
+        "nameEn": "The Fisherman's Interrogation",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/fisherman-interrogation.webp"
+      }
+    ]
+  }
+]

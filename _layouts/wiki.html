@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include head-meta.html %}
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Фильтр телевизора -->
+    <div id="crt-overlay"></div>
+
+    <!-- Язык -->
+    <div>
+        <button class="lang-btn" id="btnRu" onclick="setLanguage('ru')">РУС</button>
+        <button class="lang-btn" id="btnEn" onclick="setLanguage('en')">ENG</button>
+    </div>
+
+    {% include nav.html %}
+
+    <div class="tab-content">
+        <article class="wiki-page">
+            <a class="wiki-back" href="{{ '/actors.html' | relative_url }}" data-i18n="backToProps">← Назад к декорациям</a>
+
+            <h2 class="wiki-title">{{ page.title }}</h2>
+
+            {{ content }}
+        </article>
+    </div>
+
+    <!-- Попап для просмотра картинок (без фильтра) -->
+    <div id="image-popup" onclick="closePopup()">
+        <img id="popup-image" src="" alt="Увеличенное изображение">
+    </div>
+
+    <script src="{{ '/i18n.js' | relative_url }}"></script>
+    <script src="{{ '/content-data.js' | relative_url }}"></script>
+    <script src="{{ '/render.js' | relative_url }}"></script>
+    <script src="{{ '/main.js' | relative_url }}"></script>
+</body>
+</html>

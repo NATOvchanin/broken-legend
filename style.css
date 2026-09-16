@@ -196,8 +196,22 @@
             }
 
         /* ===========================
-           Стили для вкладки "Актёры"
+           Стили для вкладки "Декорации"
            =========================== */
+        .char-section {
+            margin-bottom: 50px;
+        }
+
+        .char-category-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 18px;
+            color: #ffffff;
+            text-shadow: 0 0 12px #33ff33;
+            text-align: center;
+            margin-bottom: 25px;
+            font-style: normal;
+        }
+
         .actor-list {
             display: flex;
             flex-wrap: wrap;
@@ -207,32 +221,153 @@
             margin: 0 auto;
         }
 
+        /* Карточки теперь ссылки — ведут на вики-страницу персонажа */
         .actor-card {
+            display: block;
             background: rgba(0, 0, 0, 0.6);
             border: 2px solid #33ff33;
             padding: 20px;
             width: 250px;
             text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.15s, box-shadow 0.15s;
         }
 
-            .actor-card h3 {
+            .actor-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 0 18px #33ff33;
+            }
+
+            .actor-portrait {
+                width: 100%;
+                height: auto;
+                margin-bottom: 12px;
+                border: 2px solid #33ff33;
+            }
+
+            .actor-name {
                 font-family: 'Press Start 2P', cursive;
                 font-size: 16px;
                 color: #ffffff;
                 text-shadow: 0 0 10px #33ff33;
-                margin-bottom: 10px;
+                margin: 0 0 10px 0;
                 font-style: normal;
             }
 
-            .actor-card p {
-                font-size: 16px; /* Единый размер */
+            .actor-teaser {
+                font-size: 16px;
                 line-height: 1.6;
                 margin: 0;
                 font-style: normal;
             }
 
         /* ===========================
-           Стили для вкладки "Материалы"
+           Вики-страницы персонажей и событий
+           =========================== */
+        .wiki-page {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .wiki-back {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .wiki-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 22px;
+            color: #ffffff;
+            text-shadow: 0 0 12px #33ff33;
+            border-bottom: 2px solid #33ff33;
+            padding-bottom: 12px;
+            margin-bottom: 8px;
+            font-style: normal;
+        }
+
+        .wiki-kind {
+            font-size: 14px;
+            color: #999;
+            margin: 0 0 25px 0;
+            font-style: italic;
+        }
+
+        .wiki-wip {
+            background: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #33ff33;
+            padding: 16px 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* ===========================
+           Главная: описание игры и тизеры
+           =========================== */
+        .about-block {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .about-text {
+            font-size: 16px;
+            line-height: 1.8;
+            text-align: left;
+            /* \n\n в тексте словаря превращаются в реальные абзацы */
+            white-space: pre-line;
+        }
+
+        .teasers-block {
+            margin-top: 50px;
+        }
+
+        .teasers-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .teaser-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            gap: 12px;
+        }
+
+            .teaser-card img {
+                width: 100%;
+                height: auto;
+                border: 2px solid #33ff33;
+                cursor: pointer;
+            }
+
+            .teaser-caption {
+                font-size: 16px;
+                line-height: 1.6;
+                text-align: center;
+            }
+
+        /* ===========================
+           Гардероб: список площадок
+           =========================== */
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        /* ===========================
+           Стили для вкладки "Сцены"
            =========================== */
         .media-grid {
             display: flex;

@@ -17,10 +17,10 @@
             homeTitle: "Трейлер",
             trailerUrl: "https://www.youtube.com/embed/lGth_xZWymo",
             legendTitle: "Легенда о небесах",
-            mediaTitle: "Скриншоты и концепты",
-            actorsTitle: "Главные герои",
+            mediaTitle: "Сцены",
+            actorsTitle: "Декорации",
             contactTitle: "Связь с разработчиком",
-            contactDesc: "Форма для отправки сообщений разработчику. Мнение, вопросы, контакты, что угодно - я всё читаю!",
+            contactDesc: "Форма для отправки сообщений разработчику. Мнение, вопросы, контакты, что угодно - я всё читаю! Также пишите ваши контакты, если желаете в будущем... Стать ближе к этой истории.",
             sendBtn: "Отправить",
             subTitle: "Следите за разработкой",
             actor1Title: "Рыцарь",
@@ -31,10 +31,27 @@
             // Навигация
             navHome: "Главная",
             navLegend: "Легенда",
-            navMedia: "Материалы",
-            navActors: "Актёры",
-            navContact: "Связь",
-            navSubscribe: "Подписаться",
+            navMedia: "Сцены",
+            navActors: "Декорации",
+            navContact: "Телефон",
+            navSubscribe: "Гардероб",
+
+            // Главная — описание игры и тизеры
+            aboutText: "Talebreak (Сломанная сказка) — визуальная новелла о детском кукольном спектакле, где разыгрывается история героев, побеждающих зло. Но что, если жители знают, какую роль им суждено сыграть — и каково жить, зная, что с финалом ты просто исчезнешь?\n\nВы не играете за героев — вы интерактивный зритель, управляющий их путём через карточные бои, мини-игры и лёгкую RPG-систему с репутацией и памятью выборов. Игра выйдет в 6 эпизодах, сейчас в работе первый. Она будет полностью бесплатной - единственная валюта, которая нам нужна от вас - это ваше внимание.",
+            teasersTitle: "Тизеры",
+
+            // Гардероб — пояснения к площадкам
+            subGamejolt: "GameJolt — для всех",
+            subVkplay: "VK Play — для русскоязычных",
+            subItch: "Itch.io — для англоязычных",
+            subTelegram: "Telegram",
+
+            // Декорации — категории
+            catMain: "Главные герои",
+            catImportant: "Важные персонажи",
+            catEvents: "События",
+            backToProps: "← Назад к декорациям",
+            wipNotice: "Страница пока пустует. Заглядывай позже.",
             progressLabel: "ПРОГРЕСС ПЕРВОЙ ГЛАВЫ",
             feedbackPlaceholder: "Твой текст... (до 15 000 символов)",
             // Легенда
@@ -53,10 +70,10 @@
             homeTitle: "Trailer",
             trailerUrl: "https://www.youtube.com/embed/vkzxH5LFVYg",
             legendTitle: "The Legend of the Heavens",
-            mediaTitle: "Screenshots & Concept Art",
-            actorsTitle: "Main Characters",
+            mediaTitle: "Scenes",
+            actorsTitle: "Props",
             contactTitle: "Contact the Developer",
-            contactDesc: "A form to send messages to the developer. Feedback, questions, contacts, anything — I read it all!",
+            contactDesc: "A form to send messages to the developer. Feedback, questions, contacts, anything — I read it all! Also leave your contacts if you wish, in the future... to become closer to this story.",
             sendBtn: "Send",
             subTitle: "Follow the Development",
             actor1Title: "Knight",
@@ -67,10 +84,27 @@
             // Navigation
             navHome: "Home",
             navLegend: "Legend",
-            navMedia: "Media",
-            navActors: "Cast",
-            navContact: "Contact",
-            navSubscribe: "Subscribe",
+            navMedia: "Scenes",
+            navActors: "Props",
+            navContact: "Telephone",
+            navSubscribe: "Wardrobe",
+
+            // Home — game description and teasers
+            aboutText: "Talebreak is a visual novel about a children's puppet show staging the tale of heroes who defeat evil. But what if the inhabitants know the role they are destined to play — and what is it like to live knowing that with the finale you simply vanish?\n\nYou don't play as the heroes — you are an interactive spectator guiding their path through card battles, mini-games and a light RPG system with reputation and remembered choices. The game will come out in 6 episodes, the first one is in the works now. It will be completely free - the only currency we need from you is your attention.",
+            teasersTitle: "Teasers",
+
+            // Wardrobe — platform notes
+            subGamejolt: "GameJolt — for everyone",
+            subVkplay: "VK Play — for Russian speakers",
+            subItch: "Itch.io — for English speakers",
+            subTelegram: "Telegram",
+
+            // Props — categories
+            catMain: "Main heroes",
+            catImportant: "Important characters",
+            catEvents: "Events",
+            backToProps: "← Back to props",
+            wipNotice: "This page is still empty. Check back later.",
             progressLabel: "CHAPTER 1 PROGRESS",
             feedbackPlaceholder: "Your text... (up to 15,000 characters)",
             // Legend (English translation — revised)
@@ -131,11 +165,19 @@
                 }
             }
 
-            // Особый случай: раздел "Материалы". Данные приходят
-            // из media.json (см. render.js), а не из этого словаря,
-            // поэтому не подходят под общий цикл выше.
+            // Особые случаи: блоки, данные которых приходят из
+            // JSON-файлов (см. render.js), а не из этого словаря,
+            // поэтому не подходят под общий цикл выше. Каждая
+            // проверка typeof — на случай, если на конкретной
+            // странице этого блока нет.
             if (typeof applyMediaLanguage === 'function') {
                 applyMediaLanguage(lang);
+            }
+            if (typeof applyTeaserLanguage === 'function') {
+                applyTeaserLanguage(lang);
+            }
+            if (typeof applyCharacterLanguage === 'function') {
+                applyCharacterLanguage(lang);
             }
         }
 

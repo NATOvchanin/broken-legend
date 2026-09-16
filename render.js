@@ -1,13 +1,14 @@
 // ==========================================================
-//  ГЕНЕРАЦИЯ БЛОКОВ "ЛЕГЕНДА" И "МАТЕРИАЛЫ" ИЗ ДАННЫХ
+//  ГЕНЕРАЦИЯ БЛОКОВ ИЗ ДАННЫХ
 // ==========================================================
-// Строит DOM-блоки на основе content-data.js вместо того,
-// чтобы держать их скопированными вручную в index.html.
-// Сам текст (RU/EN) подставляется отдельно, функцией
-// setLanguage() из i18n.js — здесь только структура и id/src
-// картинок для исходного (русского) варианта, чтобы страница
-// не была пустой до первого вызова setLanguage().
+// Строит DOM-блоки на основе content-data.js и JSON-файлов
+// вместо того, чтобы держать их скопированными вручную в HTML.
+// Сам текст (RU/EN) подставляется функцией setLanguage()
+// из i18n.js — здесь только структура.
 
+// ==========================================================
+//  ЛЕГЕНДА (данные локальные, из content-data.js)
+// ==========================================================
 function renderLegend() {
     const wrapper = document.getElementById('legend-wrapper');
     if (!wrapper) return;
@@ -38,15 +39,13 @@ function renderLegend() {
 }
 
 // ==========================================================
-//  МАТЕРИАЛЫ: загрузка из media.json
+//  СЦЕНЫ: загрузка из media.json
 // ==========================================================
-// В отличие от легенды (фиксированный, заранее известный набор
-// строф), список скриншотов должен пополняться/сокращаться без
-// правки кода. Поэтому сами данные (картинки + RU/EN описания)
-// лежат не в content-data.js, а в media.json и подгружаются
-// через fetch — чтобы добавить/убрать скриншот, достаточно
-// отредактировать media.json и положить/удалить файл картинки,
-// ничего в HTML/JS трогать не нужно.
+// Список скриншотов должен пополняться/сокращаться без правки
+// кода, поэтому данные лежат в media.json и подгружаются через
+// fetch — чтобы добавить/убрать сцену, достаточно отредактировать
+// media.json (удобнее всего через admin.html) и положить файл
+// картинки. Подписей у сцен больше нет — только изображения.
 
 let mediaItems = [];
 
@@ -69,19 +68,14 @@ async function renderMedia() {
 
         const img = document.createElement('img');
         img.className = 'clickable-img';
-        img.alt = `Скриншот ${item.id}`;
-
-        const desc = document.createElement('div');
-        desc.className = 'desc';
+        img.alt = `Сцена ${item.id}`;
 
         mediaItem.appendChild(img);
-        mediaItem.appendChild(desc);
         grid.appendChild(mediaItem);
     });
 }
 
-// Вызывается из setLanguage() в i18n.js — подставляет в уже
-// построенные .media-item нужный язык (картинку + описание).
+// Вызывается из setLanguage() — подставляет картинку нужного языка.
 function applyMediaLanguage(lang) {
     if (!mediaItems.length) return;
 
@@ -91,9 +85,155 @@ function applyMediaLanguage(lang) {
         if (!item) return;
 
         const img = el.querySelector('img');
-        const desc = el.querySelector('.desc');
-
         img.src = lang === 'en' ? item.imgEn : item.imgRu;
-        desc.textContent = lang === 'en' ? item.descEn : item.descRu;
+    });
+}
+
+// ==========================================================
+//  ТИЗЕРЫ НА ГЛАВНОЙ: загрузка из teasers.json
+// ==========================================================
+// Устроены так же, как сцены: добавление/удаление карточки —
+// это правка teasers.json, без единой строчки кода.
+
+let teaserItems = [];
+
+async function renderTeasers() {
+    const grid = document.getElementById('teasers-grid');
+    if (!grid) return;
+
+    try {
+        const response = await fetch('teasers.json');
+        teaserItems = await response.json();
+    } catch (e) {
+        console.log('Не удалось загрузить teasers.json:', e);
+        return;
+    }
+
+    teaserItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'teaser-card';
+        card.dataset.teaserId = item.id;
+
+        const img = document.createElement('img');
+        img.className = 'clickable-img';
+        img.alt = `Тизер ${item.id}`;
+
+        const caption = document.createElement('div');
+        caption.className = 'teaser-caption';
+
+        card.appendChild(img);
+        card.appendChild(caption);
+        grid.appendChild(card);
+    });
+}
+
+// Вызывается из setLanguage() — подставляет картинку и подпись
+// нужного языка. Если английской версии картинки ещё нет (imgEn пустой),
+// показываем русскую — лучше, чем пустое место.
+function applyTeaserLanguage(lang) {
+    if (!teaserItems.length) return;
+
+    document.querySelectorAll('.teaser-card').forEach(el => {
+        const id = parseInt(el.dataset.teaserId, 10);
+        const item = teaserItems.find(t => t.id === id);
+        if (!item) return;
+
+        const img = el.querySelector('img');
+        img.src = (lang === 'en' && item.imgEn) ? item.imgEn : item.imgRu;
+
+        const caption = lang === 'en' ? item.captionEn : item.captionRu;
+        el.querySelector('.teaser-caption').textContent = caption || '';
+    });
+}
+
+// ==========================================================
+//  ДЕКОРАЦИИ: карточки персонажей и событий из characters.json
+// ==========================================================
+// Каждая карточка — ссылка на свою вики-страницу (wiki/<slug>.html).
+// Добавить нового персонажа: объект в characters.json + файл
+// страницы в папке wiki/.
+
+let characterGroups = [];
+
+async function renderCharacters() {
+    const container = document.getElementById('characters-container');
+    if (!container) return;
+
+    try {
+        const response = await fetch('characters.json');
+        characterGroups = await response.json();
+    } catch (e) {
+        console.log('Не удалось загрузить characters.json:', e);
+        return;
+    }
+
+    characterGroups.forEach(group => {
+        const section = document.createElement('section');
+        section.className = 'char-section';
+        section.dataset.category = group.category;
+
+        const heading = document.createElement('h3');
+        heading.className = 'char-category-title';
+
+        const grid = document.createElement('div');
+        grid.className = 'actor-list';
+
+        group.entries.forEach(entry => {
+            const card = document.createElement('a');
+            card.className = 'actor-card';
+            card.href = `wiki/${entry.slug}.html`;
+            card.dataset.slug = entry.slug;
+
+            const img = document.createElement('img');
+            img.className = 'actor-portrait';
+            img.src = entry.img;
+            img.alt = entry.nameRu;
+            // Если портрета ещё нет — прячем картинку, чтобы не
+            // показывать «битую» иконку на месте будущего арта.
+            img.onerror = function () { this.style.display = 'none'; };
+
+            const name = document.createElement('h4');
+            name.className = 'actor-name';
+
+            const teaser = document.createElement('p');
+            teaser.className = 'actor-teaser';
+
+            card.appendChild(img);
+            card.appendChild(name);
+            card.appendChild(teaser);
+            grid.appendChild(card);
+        });
+
+        section.appendChild(heading);
+        section.appendChild(grid);
+        container.appendChild(section);
+    });
+}
+
+// Вызывается из setLanguage() — подставляет имена, тизеры и
+// заголовки категорий на нужном языке.
+function applyCharacterLanguage(lang) {
+    if (!characterGroups.length) return;
+    const dict = lang === 'en' ? langEn : langRu;
+
+    const titleKeys = { main: 'catMain', important: 'catImportant', events: 'catEvents' };
+
+    document.querySelectorAll('.char-section').forEach(section => {
+        const group = characterGroups.find(g => g.category === section.dataset.category);
+        if (!group) return;
+
+        const key = titleKeys[group.category];
+        section.querySelector('.char-category-title').textContent =
+            (key && dict[key]) || (lang === 'en' ? group.categoryEn : group.categoryRu);
+
+        section.querySelectorAll('.actor-card').forEach(card => {
+            const entry = group.entries.find(e => e.slug === card.dataset.slug);
+            if (!entry) return;
+
+            card.querySelector('.actor-name').textContent =
+                lang === 'en' ? entry.nameEn : entry.nameRu;
+            card.querySelector('.actor-teaser').textContent =
+                lang === 'en' ? entry.teaserEn : entry.teaserRu;
+        });
     });
 }

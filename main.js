@@ -139,19 +139,25 @@
             // (если человек уже выбирал язык раньше), либо 'ru' по умолчанию.
 
             // Легенда строится синхронно из локальных данных (content-data.js).
-            // Материалы — асинхронно, из media.json (см. render.js) — поэтому
-            // ждём их перед первым применением перевода, иначе setLanguage()
-            // не найдёт ещё не созданные .media-item.
+            // Сцены, тизеры и декорации — асинхронно, из JSON-файлов
+            // (см. render.js) — поэтому ждём их перед первым применением
+            // перевода, иначе setLanguage() не найдёт ещё не созданные блоки.
+            // Каждая функция сама проверяет, есть ли её контейнер на странице,
+            // так что лишние вызовы на других страницах безвредны.
             renderLegend();
             await renderMedia();
+            await renderTeasers();
+            await renderCharacters();
             setLanguage(currentLang);
 
-            const images = document.querySelectorAll('.clickable-img');
-            images.forEach(img => {
-                img.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    openPopup(this.src);
-                });
+            // Делегирование вместо навешивания обработчика на каждую
+            // картинку: работает и для блоков, которые появятся позже
+            // (например, если список сцен подгрузится с задержкой).
+            document.addEventListener('click', function (e) {
+                const img = e.target.closest('.clickable-img');
+                if (!img) return;
+                e.stopPropagation();
+                openPopup(img.src);
             });
 
             document.addEventListener('keydown', function (e) {

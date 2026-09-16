@@ -113,7 +113,8 @@
 
 <div class="tabs">
     <button class="tab-btn active" onclick="switchPanel('progress')">Прогресс (главная)</button>
-    <button class="tab-btn" onclick="switchPanel('media')">Материалы</button>
+    <button class="tab-btn" onclick="switchPanel('media')">Сцены</button>
+    <button class="tab-btn" onclick="switchPanel('teasers')">Тизеры</button>
 </div>
 
 <!-- ============ ПРОГРЕСС ============ -->
@@ -148,7 +149,7 @@
     </div>
     <input type="file" id="m-load-file" accept="application/json" onchange="loadMediaFile(event)">
 
-    <h3 style="margin-top:24px;">Новая запись</h3>
+    <h3 style="margin-top:24px;">Новая сцена</h3>
     <div class="field-grid">
         <div>
             <label>Путь к картинке (RU) — например assets/img/photo7.webp</label>
@@ -159,10 +160,6 @@
             <input type="text" id="m-img-en" placeholder="assets/img/en/photo7.webp">
         </div>
     </div>
-    <label>Описание (RU)</label>
-    <textarea id="m-desc-ru"></textarea>
-    <label>Описание (EN)</label>
-    <textarea id="m-desc-en"></textarea>
 
     <button class="action" onclick="addMediaItem()" type="button">+ Добавить в список</button>
 
@@ -173,6 +170,43 @@
         <button class="action" onclick="generateMediaJSON()" type="button">Сгенерировать media.json</button>
         <textarea id="m-output" readonly placeholder="Здесь появится готовый JSON..."></textarea>
         <button class="action" onclick="copyOutput('m-output')" type="button">Скопировать</button>
+    </div>
+</div>
+
+<!-- ============ ТИЗЕРЫ ============ -->
+<div id="panel-teasers" class="panel">
+    <div class="note">
+        Тизеры показываются на главной странице под описанием игры.
+        Загрузи текущий <code>teasers.json</code>, чтобы отредактировать список,
+        или собери новый с нуля.
+    </div>
+    <input type="file" id="t-load-file" accept="application/json" onchange="loadTeaserFile(event)">
+
+    <h3 style="margin-top:24px;">Новый тизер</h3>
+    <div class="field-grid">
+        <div>
+            <label>Путь к картинке (RU)</label>
+            <input type="text" id="t-img-ru" placeholder="assets/img/teasers/teaser2.webp">
+        </div>
+        <div>
+            <label>Путь к картинке (EN) — можно оставить пустым</label>
+            <input type="text" id="t-img-en" placeholder="assets/img/teasers/en/teaser2.webp">
+        </div>
+    </div>
+    <label>Подпись (RU) — можно оставить пустой</label>
+    <textarea id="t-cap-ru"></textarea>
+    <label>Подпись (EN) — можно оставить пустой</label>
+    <textarea id="t-cap-en"></textarea>
+
+    <button class="action" onclick="addTeaserItem()" type="button">+ Добавить в список</button>
+
+    <h3 style="margin-top:24px;">Текущий список</h3>
+    <div id="t-items"></div>
+
+    <div class="output">
+        <button class="action" onclick="generateTeaserJSON()" type="button">Сгенерировать teasers.json</button>
+        <textarea id="t-output" readonly placeholder="Здесь появится готовый JSON..."></textarea>
+        <button class="action" onclick="copyOutput('t-output')" type="button">Скопировать</button>
     </div>
 </div>
 
@@ -244,7 +278,7 @@ function renderMediaItems() {
         row.className = 'item-row';
         const content = document.createElement('div');
         content.className = 'content';
-        content.textContent = `#${item.id}  ${item.imgRu}  |  ${item.descRu.slice(0, 60)}${item.descRu.length > 60 ? '…' : ''}`;
+        content.textContent = `#${item.id}  ${item.imgRu}`;
         const btn = document.createElement('button');
         btn.className = 'remove';
         btn.textContent = 'Убрать';
@@ -262,25 +296,99 @@ function renumberMedia() {
 function addMediaItem() {
     const imgRu = document.getElementById('m-img-ru').value.trim();
     const imgEn = document.getElementById('m-img-en').value.trim();
-    const descRu = document.getElementById('m-desc-ru').value.trim();
-    const descEn = document.getElementById('m-desc-en').value.trim();
 
-    if (!imgRu || !descRu) {
-        alert('Заполни хотя бы путь к RU-картинке и RU-описание.');
+    if (!imgRu) {
+        alert('Укажи хотя бы путь к RU-картинке.');
         return;
     }
 
     mediaItems.push({
         id: mediaItems.length + 1,
-        imgRu, imgEn, descRu, descEn
+        imgRu,
+        imgEn: imgEn || imgRu
     });
 
     document.getElementById('m-img-ru').value = '';
     document.getElementById('m-img-en').value = '';
-    document.getElementById('m-desc-ru').value = '';
-    document.getElementById('m-desc-en').value = '';
 
     renderMediaItems();
+}
+
+// ==========================================================
+//  ТИЗЕРЫ
+// ==========================================================
+let teaserItems = [];
+
+function renderTeaserItems() {
+    const container = document.getElementById('t-items');
+    container.innerHTML = '';
+    teaserItems.forEach((item, i) => {
+        const row = document.createElement('div');
+        row.className = 'item-row';
+        const content = document.createElement('div');
+        content.className = 'content';
+        const cap = item.captionRu || '';
+        content.textContent = `#${item.id}  ${item.imgRu}${cap ? '  |  ' + cap.slice(0, 50) + (cap.length > 50 ? '…' : '') : ''}`;
+        const btn = document.createElement('button');
+        btn.className = 'remove';
+        btn.textContent = 'Убрать';
+        btn.onclick = () => {
+            teaserItems.splice(i, 1);
+            teaserItems.forEach((t, idx) => { t.id = idx + 1; });
+            renderTeaserItems();
+        };
+        row.appendChild(content);
+        row.appendChild(btn);
+        container.appendChild(row);
+    });
+}
+
+function addTeaserItem() {
+    const imgRu = document.getElementById('t-img-ru').value.trim();
+    const imgEn = document.getElementById('t-img-en').value.trim();
+    const captionRu = document.getElementById('t-cap-ru').value.trim();
+    const captionEn = document.getElementById('t-cap-en').value.trim();
+
+    if (!imgRu) {
+        alert('Укажи хотя бы путь к RU-картинке тизера.');
+        return;
+    }
+
+    teaserItems.push({
+        id: teaserItems.length + 1,
+        imgRu,
+        imgEn: imgEn || imgRu,
+        captionRu, captionEn
+    });
+
+    document.getElementById('t-img-ru').value = '';
+    document.getElementById('t-img-en').value = '';
+    document.getElementById('t-cap-ru').value = '';
+    document.getElementById('t-cap-en').value = '';
+
+    renderTeaserItems();
+}
+
+function loadTeaserFile(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+        try {
+            const parsed = JSON.parse(reader.result);
+            if (!Array.isArray(parsed)) throw new Error('Ожидался массив');
+            teaserItems = parsed;
+            renderTeaserItems();
+            alert(`Загружено тизеров: ${teaserItems.length}`);
+        } catch (e) {
+            alert('Не удалось прочитать файл: ' + e.message);
+        }
+    };
+    reader.readAsText(file);
+}
+
+function generateTeaserJSON() {
+    document.getElementById('t-output').value = JSON.stringify(teaserItems, null, 2);
 }
 
 function loadMediaFile(event) {
@@ -316,6 +424,7 @@ function copyOutput(id) {
 
 renderProgressItems();
 renderMediaItems();
+renderTeaserItems();
 </script>
 
 </body>
