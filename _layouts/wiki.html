@@ -24,7 +24,7 @@
         <article class="wiki-page">
             <a class="wiki-back" href="{{ '/actors.html' | relative_url }}" data-i18n="backToProps">← Назад к декорациям</a>
 
-            <h2 class="wiki-title">{{ page.title }}</h2>
+            <h2 class="wiki-title" data-i18n="wikiTitle_{{ page.name | remove: '.html' }}">{{ page.title }}</h2>
 
             {{ content }}
         </article>
