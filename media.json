@@ -1,5 +1,5 @@
 [
-  { "id": 1, "imgRu": "assets/img/photo1-new.webp", "imgEn": "assets/img/en/photo1-new.webp" },
+  { "id": 1, "imgRu": "assets/img/photo1.webp", "imgEn": "assets/img/en/photo1.webp" },
   { "id": 2, "imgRu": "assets/img/photo2.webp",     "imgEn": "assets/img/en/photo2.webp" },
   { "id": 3, "imgRu": "assets/img/photo3.webp",     "imgEn": "assets/img/en/photo3.webp" },
   { "id": 4, "imgRu": "assets/img/photo4.webp",     "imgEn": "assets/img/en/photo4.webp" },

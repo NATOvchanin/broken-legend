@@ -19,6 +19,15 @@
         "teaserRu": "",
         "teaserEn": "",
         "img": "assets/img/wiki/lily.webp"
+      },
+      {
+        "slug": "mystery",
+        "mystery": true,
+        "nameRu": "",
+        "nameEn": "",
+        "teaserRu": "И возможно, кто-то ещё?..",
+        "teaserEn": "And perhaps... someone else?..",
+        "img": ""
       }
     ]
   },
@@ -30,7 +39,7 @@
       {
         "slug": "klyaksonski",
         "nameRu": "Мистер Кляксонски",
-        "nameEn": "Mister Klyaksonski",
+        "nameEn": "Herr Blotelburg",
         "teaserRu": "",
         "teaserEn": "",
         "img": "assets/img/wiki/klyaksonski.webp"
@@ -52,12 +61,12 @@
         "img": "assets/img/wiki/king.webp"
       },
       {
-        "slug": "elaric",
+        "slug": "elarik",
         "nameRu": "Эларик",
-        "nameEn": "Elaric",
+        "nameEn": "Elarik",
         "teaserRu": "",
         "teaserEn": "",
-        "img": "assets/img/wiki/elaric.webp"
+        "img": "assets/img/wiki/elarik.webp"
       },
       {
         "slug": "vilyaz",
@@ -84,12 +93,12 @@
         "img": "assets/img/wiki/miriam.webp"
       },
       {
-        "slug": "good-guys",
+        "slug": "goodfolk",
         "nameRu": "Добряки",
-        "nameEn": "The Good Guys",
+        "nameEn": "Goodfolk",
         "teaserRu": "",
         "teaserEn": "",
-        "img": "assets/img/wiki/good-guys.webp"
+        "img": "assets/img/wiki/goodfolk.webp"
       },
       {
         "slug": "villains",
@@ -117,7 +126,7 @@
       {
         "slug": "mighty-rangers",
         "nameRu": "Могучие рейнджеры",
-        "nameEn": "The Mighty Rangers",
+        "nameEn": "Mighty Rangers",
         "teaserRu": "",
         "teaserEn": "",
         "img": "assets/img/wiki/mighty-rangers.webp"

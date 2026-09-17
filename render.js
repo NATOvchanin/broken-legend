@@ -179,28 +179,34 @@ async function renderCharacters() {
         grid.className = 'actor-list';
 
         group.entries.forEach(entry => {
-            const card = document.createElement('a');
-            card.className = 'actor-card';
-            card.href = `wiki/${entry.slug}.html`;
+            // Карточка-загадка не ведёт никуда — обычный <div>,
+            // а не ссылка, но тех же размеров/фона, что у остальных.
+            const card = document.createElement(entry.mystery ? 'div' : 'a');
+            card.className = entry.mystery ? 'actor-card mystery-card' : 'actor-card';
+            if (!entry.mystery) {
+                card.href = `wiki/${entry.slug}.html`;
+            }
             card.dataset.slug = entry.slug;
 
-            const img = document.createElement('img');
-            img.className = 'actor-portrait';
-            img.src = entry.img;
-            img.alt = entry.nameRu;
-            // Если портрета ещё нет — прячем картинку, чтобы не
-            // показывать «битую» иконку на месте будущего арта.
-            img.onerror = function () { this.style.display = 'none'; };
+            if (!entry.mystery) {
+                const img = document.createElement('img');
+                img.className = 'actor-portrait';
+                img.src = entry.img;
+                img.alt = entry.nameRu;
+                // Если портрета ещё нет — прячем картинку, чтобы не
+                // показывать «битую» иконку на месте будущего арта.
+                img.onerror = function () { this.style.display = 'none'; };
+                card.appendChild(img);
 
-            const name = document.createElement('h4');
-            name.className = 'actor-name';
+                const name = document.createElement('h4');
+                name.className = 'actor-name';
+                card.appendChild(name);
+            }
 
             const teaser = document.createElement('p');
             teaser.className = 'actor-teaser';
-
-            card.appendChild(img);
-            card.appendChild(name);
             card.appendChild(teaser);
+
             grid.appendChild(card);
         });
 
@@ -230,8 +236,10 @@ function applyCharacterLanguage(lang) {
             const entry = group.entries.find(e => e.slug === card.dataset.slug);
             if (!entry) return;
 
-            card.querySelector('.actor-name').textContent =
-                lang === 'en' ? entry.nameEn : entry.nameRu;
+            const nameEl = card.querySelector('.actor-name');
+            if (nameEl) {
+                nameEl.textContent = lang === 'en' ? entry.nameEn : entry.nameRu;
+            }
             card.querySelector('.actor-teaser').textContent =
                 lang === 'en' ? entry.teaserEn : entry.teaserRu;
         });
