@@ -293,15 +293,17 @@
            под текстуру, которую позже зальёт разработчик. Пока
            картинки нет — просто подписанная рамка-заглушка. */
         .wiki-intro {
-            overflow: hidden; /* clearfix для float */
+            display: flex;
+            flex-direction: row-reverse; /* картинка справа, при этом в HTML она идёт первой */
+            align-items: flex-start;
+            gap: 25px;
             margin-bottom: 20px;
         }
 
             .wiki-intro .wiki-portrait-slot {
-                float: right;
+                flex: 0 0 220px;
                 width: 220px;
                 height: 220px;
-                margin: 0 0 15px 25px;
                 border: 2px dashed #33ff33;
                 background: rgba(51, 255, 51, 0.05);
                 position: relative;
@@ -344,6 +346,8 @@
                 }
 
             .wiki-intro p {
+                flex: 1;
+                min-width: 0; /* чтобы длинные слова корректно переносились, а не растягивали флекс-контейнер */
                 margin: 0;
                 text-align: left;
                 line-height: 1.7;
