@@ -289,9 +289,9 @@
            Вики-страницы персонажей и событий
            =========================== */
 
-        /* Первый абзац персонажа: текст слева, справа — плашка
-           под текстуру, которую позже зальёт разработчик. Пока
-           картинки нет — просто подписанная рамка-заглушка. */
+        /* Первый абзац персонажа: текст слева, справа — портрет.
+           Тот же приём, что и в "Декорациях" (.actor-portrait) —
+           обычная рамка прямо на <img>, без дополнительных слоёв. */
         .wiki-intro {
             display: flex;
             flex-direction: row-reverse; /* картинка справа, при этом в HTML она идёт первой */
@@ -300,50 +300,13 @@
             margin-bottom: 20px;
         }
 
-            .wiki-intro .wiki-portrait-slot {
+            .wiki-portrait {
                 flex: 0 0 220px;
                 width: 220px;
                 height: 220px;
-                border: 2px dashed #33ff33;
-                background: rgba(51, 255, 51, 0.05);
-                position: relative;
-                box-sizing: border-box;
+                object-fit: cover;
+                border: 2px solid #33ff33;
             }
-
-                /* Пока файла нет — виден только текст "Текстура",
-                   пунктирная рамка сигнализирует "здесь пусто".
-                   Как только появляется настоящее фото по тому же
-                   пути — оно перекрывает подпись, а рамка становится
-                   сплошной (класс portrait-loaded, см. wiki-страницы),
-                   чтобы не выглядеть как незаполненная заготовка. */
-                .wiki-intro .wiki-portrait-slot img,
-                .wiki-intro .wiki-portrait-slot .slot-label {
-                    position: absolute;
-                    inset: 0;
-                    width: 100%;
-                    height: 100%;
-                }
-
-                .wiki-intro .wiki-portrait-slot img {
-                    object-fit: cover;
-                }
-
-                .wiki-intro .wiki-portrait-slot.portrait-loaded {
-                    border-style: solid;
-                    background: transparent;
-                }
-
-                .wiki-intro .wiki-portrait-slot .slot-label {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    text-align: center;
-                    font-size: 12px;
-                    color: #33ff33;
-                    opacity: 0.7;
-                    padding: 10px;
-                    box-sizing: border-box;
-                }
 
             .wiki-intro p {
                 flex: 1;
