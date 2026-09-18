@@ -24,7 +24,6 @@ function renderLegend() {
 
         const imgWrap = document.createElement('div');
         imgWrap.className = 'legend-img';
-        imgWrap.style.transform = `translateY(${item.offset}px)`;
 
         const img = document.createElement('img');
         img.src = `assets/img/legend${item.id}.webp`;

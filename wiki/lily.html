@@ -9,7 +9,7 @@ description: "Лекарь Лили — одна из главных герое�
 <div class="wiki-intro">
     <div class="wiki-portrait-slot">
         <span class="slot-label">Текстура<br>(lily.webp)</span>
-        <img src="{{ '/assets/img/wiki/lily.webp' | relative_url }}" alt="Лили" onerror="this.style.display='none'" onload="this.previousElementSibling.style.display='none'">
+        <img src="{{ '/assets/img/wiki/lily.webp' | relative_url }}" alt="Лили" onerror="this.style.display='none'" onload="this.previousElementSibling.style.display='none'; this.parentElement.classList.add('portrait-loaded')">
     </div>
     <p data-i18n="wikiLilyIntro">Лекарь Лили (от цветка лилии) — одна из главных героев игры Talebreak. Добрая, спокойная, принимающая, но доверчивая, неуверенная в себе и слабая физически. Единственная владеет магией в команде.</p>
 </div>

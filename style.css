@@ -173,8 +173,8 @@
         .legend-block {
             display: flex;
             gap: 30px;
-            margin-bottom: 20px;
-            align-items: flex-start; /* Картинка и текст прижимаются к ВЕРХНЕМУ краю */
+            margin-bottom: 60px; /* Равный отступ у всех блоков без исключений */
+            align-items: center; /* Текст центрируется по высоте картинки — единое правило для всех строф */
         }
 
         .legend-text {
@@ -308,10 +308,12 @@
                 box-sizing: border-box;
             }
 
-                /* Картинка и подпись-заглушка лежат друг на друге:
-                   пока файла нет — виден только текст "Текстура",
-                   как только появляется настоящее фото по тому же
-                   пути — оно перекрывает подпись без единой правки кода. */
+                /* Пока файла нет — виден только текст "Текстура",
+                   пунктирная рамка сигнализирует "здесь пусто".
+                   Как только появляется настоящее фото по тому же
+                   пути — оно перекрывает подпись, а рамка становится
+                   сплошной (класс portrait-loaded, см. wiki-страницы),
+                   чтобы не выглядеть как незаполненная заготовка. */
                 .wiki-intro .wiki-portrait-slot img,
                 .wiki-intro .wiki-portrait-slot .slot-label {
                     position: absolute;
@@ -322,6 +324,11 @@
 
                 .wiki-intro .wiki-portrait-slot img {
                     object-fit: cover;
+                }
+
+                .wiki-intro .wiki-portrait-slot.portrait-loaded {
+                    border-style: solid;
+                    background: transparent;
                 }
 
                 .wiki-intro .wiki-portrait-slot .slot-label {
