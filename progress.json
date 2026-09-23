@@ -1,7 +1,8 @@
 {
   "status": "ON",
-  "percent": 55,
+  "percent": 56,
   "items": [
+    "Сделана колода нового врага (A deck for the new enemy has been created)",
     "Совершена вычитка первого дня (The first day of proofreading is complete)",
     "Доделана сцена Шута (The Jester's scene has been completed)",
     "Сделана развилка в середине 2 дня (A fork was created midway through Day 2)",
@@ -10,7 +11,6 @@
     "Обновление сайта закончено! (The website update is complete!)",
     "Создана система Вики (A wiki system has been created)",
     "Начато обновление сайта (Website update started)",
-    "Сделана мини-игра в середине 2 дня (A mini-game was created midway through Day 2)",
-    "Прописано вступление контента для середины 2 дня (The content introduction for the middle of Day 2 has been drafted)"
+    "Сделана мини-игра в середине 2 дня (A mini-game was created midway through Day 2)"
   ]
 }
