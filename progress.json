@@ -1,7 +1,8 @@
 {
   "status": "ON",
-  "percent": 57,
+  "percent": 58,
   "items": [
+    "Протестирована середина 2 дня (The middle of Day 2 has been tested)",
     "Дорисованы все текстуры для середины 2 дня (All textures for the middle of Day 2 have been finished)",
     "Сделана колода нового врага (A deck for the new enemy has been created)",
     "Совершена вычитка первого дня (The first day of proofreading is complete)",
@@ -10,7 +11,6 @@
     "Дописан ОСТ для всего 1 дня (The original soundtrack for Day 1 has been completed)",
     "Готовы текстуры для боя в середине 2 дня (Textures for the mid-Day 2 battle are ready)",
     "Обновление сайта закончено! (The website update is complete!)",
-    "Создана система Вики (A wiki system has been created)",
-    "Начато обновление сайта (Website update started)"
+    "Создана система Вики (A wiki system has been created)"
   ]
 }
