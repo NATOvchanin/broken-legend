@@ -1,7 +1,8 @@
 {
   "status": "ON",
-  "percent": 58,
+  "percent": 59,
   "items": [
+    "Сделана система оплаты мини-игр (A payment system for mini-games has been implemented)",
     "Протестирована середина 2 дня (The middle of Day 2 has been tested)",
     "Дорисованы все текстуры для середины 2 дня (All textures for the middle of Day 2 have been finished)",
     "Сделана колода нового врага (A deck for the new enemy has been created)",
@@ -10,7 +11,6 @@
     "Сделана развилка в середине 2 дня (A fork was created midway through Day 2)",
     "Дописан ОСТ для всего 1 дня (The original soundtrack for Day 1 has been completed)",
     "Готовы текстуры для боя в середине 2 дня (Textures for the mid-Day 2 battle are ready)",
-    "Обновление сайта закончено! (The website update is complete!)",
-    "Создана система Вики (A wiki system has been created)"
+    "Обновление сайта закончено! (The website update is complete!)"
   ]
 }
