@@ -1,7 +1,8 @@
 {
   "status": "ON",
-  "percent": 61,
+  "percent": 62,
   "items": [
+    "Дописан текст развилки на развлечение во 2 дне (The text for the entertainment choice on Day 2 has been completed)",
     "Придуман контент развилки на развлечение во 2 дне (Content has been devised for an entertainment-focused branching path on Day 2)",
     "Написана развилка после мини-игры (A branching point has been written following the mini-game)",
     "Сделана система оплаты мини-игр (A payment system for mini-games has been implemented)",
@@ -10,7 +11,6 @@
     "Сделана колода нового врага (A deck for the new enemy has been created)",
     "Совершена вычитка первого дня (The first day of proofreading is complete)",
     "Доделана сцена Шута (The Jester's scene has been completed)",
-    "Сделана развилка в середине 2 дня (A fork was created midway through Day 2)",
-    "Дописан ОСТ для всего 1 дня (The original soundtrack for Day 1 has been completed)"
+    "Сделана развилка в середине 2 дня (A fork was created midway through Day 2)"
   ]
 }
