@@ -1,7 +1,8 @@
 {
   "status": "ON",
-  "percent": 63,
+  "percent": 64,
   "items": [
+    "Закончен перевод первого дня (The translation of the first day is complete)",
     "Сделана сцена для квеста моряка (The scene for the sailor's quest has been created)",
     "Дописан текст развилки на развлечение во 2 дне (The text for the entertainment choice on Day 2 has been completed)",
     "Придуман контент развилки на развлечение во 2 дне (Content has been devised for an entertainment-focused branching path on Day 2)",
@@ -10,7 +11,6 @@
     "Протестирована середина 2 дня (The middle of Day 2 has been tested)",
     "Дорисованы все текстуры для середины 2 дня (All textures for the middle of Day 2 have been finished)",
     "Сделана колода нового врага (A deck for the new enemy has been created)",
-    "Совершена вычитка первого дня (The first day of proofreading is complete)",
-    "Доделана сцена Шута (The Jester's scene has been completed)"
+    "Совершена вычитка первого дня (The first day of proofreading is complete)"
   ]
 }
