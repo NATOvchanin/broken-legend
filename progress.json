@@ -1,7 +1,8 @@
 {
   "status": "ON",
-  "percent": 65,
+  "percent": 66,
   "items": [
+    "Закончено 2 сцены в середине 2 дня (Two scenes completed by midday on the second day)",
     "Доделаны механики всех предметов (The mechanics for all items have been completed)",
     "Закончен перевод первого дня (The translation of the first day is complete)",
     "Сделана сцена для квеста моряка (The scene for the sailor's quest has been created)",
@@ -10,7 +11,6 @@
     "Написана развилка после мини-игры (A branching point has been written following the mini-game)",
     "Сделана система оплаты мини-игр (A payment system for mini-games has been implemented)",
     "Протестирована середина 2 дня (The middle of Day 2 has been tested)",
-    "Дорисованы все текстуры для середины 2 дня (All textures for the middle of Day 2 have been finished)",
-    "Сделана колода нового врага (A deck for the new enemy has been created)"
+    "Дорисованы все текстуры для середины 2 дня (All textures for the middle of Day 2 have been finished)"
   ]
 }
