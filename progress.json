@@ -1,7 +1,8 @@
 {
   "status": "ON",
-  "percent": 68,
+  "percent": 69,
   "items": [
+    "Сделана особая механика секретному боссу (A special mechanic has been created for the secret boss)",
     "Написаны случайные встречи вечером 2 дня (Written: chance encounters on the evening of Day 2)",
     "Середина 2 дня готова (The middle of Day 2 is ready)",
     "Закончено 2 сцены в середине 2 дня (Two scenes completed by midday on the second day)",
@@ -10,7 +11,6 @@
     "Сделана сцена для квеста моряка (The scene for the sailor's quest has been created)",
     "Дописан текст развилки на развлечение во 2 дне (The text for the entertainment choice on Day 2 has been completed)",
     "Придуман контент развилки на развлечение во 2 дне (Content has been devised for an entertainment-focused branching path on Day 2)",
-    "Написана развилка после мини-игры (A branching point has been written following the mini-game)",
-    "Сделана система оплаты мини-игр (A payment system for mini-games has been implemented)"
+    "Написана развилка после мини-игры (A branching point has been written following the mini-game)"
   ]
 }
