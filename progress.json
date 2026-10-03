@@ -1,7 +1,8 @@
 {
   "status": "ON",
-  "percent": 73,
+  "percent": 74,
   "items": [
+    "Написана сцена секретного босса (The secret boss scene has been written)",
     "Созданы особые анимации финальному и секретному боссам (Special animations have been created for the final and secret bosses)",
     "Готов контент до боссов (Content up to the bosses is ready)",
     "Сделана новая общая механика (A new general mechanic has been implemented)",
@@ -10,7 +11,6 @@
     "Написаны случайные встречи вечером 2 дня (Written: chance encounters on the evening of Day 2)",
     "Середина 2 дня готова (The middle of Day 2 is ready)",
     "Закончено 2 сцены в середине 2 дня (Two scenes completed by midday on the second day)",
-    "Доделаны механики всех предметов (The mechanics for all items have been completed)",
-    "Закончен перевод первого дня (The translation of the first day is complete)"
+    "Доделаны механики всех предметов (The mechanics for all items have been completed)"
   ]
 }
