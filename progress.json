@@ -1,7 +1,8 @@
 {
   "status": "ON",
-  "percent": 77,
+  "percent": 78,
   "items": [
+    "Добавлена механика Достижений (Achievement mechanics added)",
     "Созданы все оставшиеся текстурки для сюжета (All remaining textures for the storyline have been created)",
     "Готова сцена финального босса (The final boss scene is ready)",
     "Написана сцена пути к финальному боссу (The scene leading to the final boss has been written)",
