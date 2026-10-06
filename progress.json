@@ -1,7 +1,8 @@
 {
   "status": "ON",
-  "percent": 79,
+  "percent": 80,
   "items": [
+    "Закончены все секретные сцены (All secret scenes have been completed)",
     "Дописан текст эпилога (The text of the epilogue has been completed)",
     "Добавлена механика Достижений (Achievement mechanics added)",
     "Созданы все оставшиеся текстурки для сюжета (All remaining textures for the storyline have been created)",
@@ -10,7 +11,6 @@
     "Написана сцена секретного босса (The secret boss scene has been written)",
     "Созданы особые анимации финальному и секретному боссам (Special animations have been created for the final and secret bosses)",
     "Готов контент до боссов (Content up to the bosses is ready)",
-    "Сделана новая общая механика (A new general mechanic has been implemented)",
-    "Дописан вечер 2 дня (Finished writing on the evening of Day 2)"
+    "Сделана новая общая механика (A new general mechanic has been implemented)"
   ]
 }
