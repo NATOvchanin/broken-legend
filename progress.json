@@ -2,6 +2,7 @@
   "status": "ON",
   "percent": 81,
   "items": [
+    "Закончена колода секретного босса (The secret boss's deck is complete)",
     "Дописаны концовки (The endings have been written)",
     "Закончены все секретные сцены (All secret scenes have been completed)",
     "Дописан текст эпилога (The text of the epilogue has been completed)",
@@ -10,7 +11,6 @@
     "Готова сцена финального босса (The final boss scene is ready)",
     "Написана сцена пути к финальному боссу (The scene leading to the final boss has been written)",
     "Написана сцена секретного босса (The secret boss scene has been written)",
-    "Созданы особые анимации финальному и секретному боссам (Special animations have been created for the final and secret bosses)",
-    "Готов контент до боссов (Content up to the bosses is ready)"
+    "Созданы особые анимации финальному и секретному боссам (Special animations have been created for the final and secret bosses)"
   ]
 }
