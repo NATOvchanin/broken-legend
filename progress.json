@@ -1,7 +1,8 @@
 {
   "status": "ON",
-  "percent": 84,
+  "percent": 85,
   "items": [
+    "Закрыты последние дыры в постановке (The final gaps in the production have been filled)",
     "Закончена колода финального босса (The final boss's deck is complete)",
     "Проведена вычитка (Proofreading has been completed)",
     "Улучшены анимации боя (Combat animations have been improved)",
@@ -10,7 +11,6 @@
     "Закончены все секретные сцены (All secret scenes have been completed)",
     "Дописан текст эпилога (The text of the epilogue has been completed)",
     "Добавлена механика Достижений (Achievement mechanics added)",
-    "Созданы все оставшиеся текстурки для сюжета (All remaining textures for the storyline have been created)",
-    "Готова сцена финального босса (The final boss scene is ready)"
+    "Созданы все оставшиеся текстурки для сюжета (All remaining textures for the storyline have been created)"
   ]
 }
