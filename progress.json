@@ -1,7 +1,8 @@
 {
   "status": "ON",
-  "percent": 87,
+  "percent": 88,
   "items": [
+    "Достижения подключены к платформам (Achievements are connected to platforms)",
     "Сделан перевод всего интерфейса и доп.механик (The entire interface and additional mechanics have been translated)",
     "Сделана функция Прогресса (The Progress function has been implemented)",
     "Закрыты последние дыры в постановке (The final gaps in the production have been filled)",
@@ -10,7 +11,6 @@
     "Улучшены анимации боя (Combat animations have been improved)",
     "Закончена колода секретного босса (The secret boss's deck is complete)",
     "Дописаны концовки (The endings have been written)",
-    "Закончены все секретные сцены (All secret scenes have been completed)",
-    "Дописан текст эпилога (The text of the epilogue has been completed)"
+    "Закончены все секретные сцены (All secret scenes have been completed)"
   ]
 }
