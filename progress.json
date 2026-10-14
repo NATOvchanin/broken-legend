@@ -1,5 +1,7 @@
 {
   "status": "ON",
+  "timer": "ON",
+  "timerTarget": "2026-12-01T18:00:00+03:00",
   "percent": 88,
   "items": [
     "Достижения подключены к платформам (Achievements are connected to platforms)",
