@@ -102,6 +102,12 @@
             wikiFishermanInterrogationItem2: "1 — рыбак рассказывает, как приставал к продавщице в центре города",
             wikiFishermanInterrogationItem3: "2 — рыбак напуган, но ничего больше не знает",
             progressLabel: "ПРОГРЕСС ПЕРВОЙ ГЛАВЫ",
+            timerPrefix: "До релиза 1 эпизода: ",
+            timerDays: "дн",
+            timerHours: "ч",
+            timerMins: "мин",
+            timerSecs: "сек",
+            timerEnded: "Релиз 1 эпизода состоялся!",
             feedbackPlaceholder: "Твой текст... (до 15 000 символов)",
             // Легенда
             legend1: "Когда с небес сойдут,\nГерои, чьих имён не знаем мы,\nОни на помощь к нам придут,\nИ защитят наш мир от тьмы.",
@@ -204,6 +210,12 @@
             wikiFishermanInterrogationItem2: "1 — the fisherman admits to harassing a shopkeeper in the city center",
             wikiFishermanInterrogationItem3: "2 — the fisherman is frightened, but knows nothing more",
             progressLabel: "CHAPTER 1 PROGRESS",
+            timerPrefix: "Until Episode 1 release: ",
+            timerDays: "d",
+            timerHours: "h",
+            timerMins: "min",
+            timerSecs: "sec",
+            timerEnded: "Episode 1 has been released!",
             feedbackPlaceholder: "Your text... (up to 15,000 characters)",
             // Legend (English translation — revised)
             legend1: "When from the heavens they descend,\nThe nameless heroes we await,\nThey'll come to aid us in the end,\nAnd shield our world from shadow's fate.",
@@ -261,6 +273,12 @@
                 if (percentMatch) {
                     progressEl.textContent = dict.progressLabel + ': ' + percentMatch[0] + '%';
                 }
+            }
+
+            // Таймер: при смене языка сразу перерисовываем текст
+            // (если таймер активен и функция доступна).
+            if (typeof refreshTimerText === 'function') {
+                refreshTimerText();
             }
 
             // Особые случаи: блоки, данные которых приходят из

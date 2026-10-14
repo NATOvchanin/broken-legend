@@ -3,6 +3,13 @@ layout: base
 title: Трейлер
 description: "Смотри трейлер визуальной новеллы Talebreak и следи за прогрессом разработки первой главы."
 ---
+<!-- Таймер до релиза: под навигацией, над трейлером.
+     Включается/выключается через progress.json → "timer": "ON"/"OFF".
+     Дата цели задаётся в progress.json → "timerTarget" (ISO 8601). -->
+<div id="release-timer" class="release-timer" hidden>
+    <div id="timerDisplay"></div>
+</div>
+
 <h2 id="homeTitle" data-i18n="homeTitle">Трейлер</h2>
 <iframe id="trailerVideo" data-i18n-src="trailerUrl" width="560" height="315" src="https://www.youtube.com/embed/lGth_xZWymo" frameborder="0" allowfullscreen></iframe>
 

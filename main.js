@@ -68,6 +68,97 @@
             }
         }
 
+
+// ==========================================================
+//  ТАЙМЕР ДО РЕЛИЗА 1 ЭПИЗОДА
+// ==========================================================
+//  Управляется из progress.json:
+//    "timer": "ON" | "OFF"   — показать / скрыть
+//    "timerTarget": "YYYY-MM-DDTHH:MM:SS+03:00"  — момент релиза
+//  Текст: "До релиза 1 эпизода: X дн X ч X мин X сек"
+
+        let timerIntervalId = null;
+        let timerTargetMs = null;
+        let timerEnabled = false;
+
+        function formatCountdown(diffMs) {
+            const dict = currentLang === 'en' ? langEn : langRu;
+            if (diffMs <= 0) {
+                return dict.timerEnded;
+            }
+            const totalSec = Math.floor(diffMs / 1000);
+            const days = Math.floor(totalSec / 86400);
+            const hours = Math.floor((totalSec % 86400) / 3600);
+            const mins = Math.floor((totalSec % 3600) / 60);
+            const secs = totalSec % 60;
+            return dict.timerPrefix +
+                days + ' ' + dict.timerDays + ' ' +
+                hours + ' ' + dict.timerHours + ' ' +
+                mins + ' ' + dict.timerMins + ' ' +
+                secs + ' ' + dict.timerSecs;
+        }
+
+        function refreshTimerText() {
+            const el = document.getElementById('timerDisplay');
+            if (!el || !timerEnabled || timerTargetMs === null) return;
+            const diff = timerTargetMs - Date.now();
+            el.textContent = formatCountdown(diff);
+        }
+
+        function stopReleaseTimer() {
+            if (timerIntervalId !== null) {
+                clearInterval(timerIntervalId);
+                timerIntervalId = null;
+            }
+            timerEnabled = false;
+            timerTargetMs = null;
+            const wrap = document.getElementById('release-timer');
+            if (wrap) wrap.hidden = true;
+        }
+
+        function startReleaseTimer(targetIso) {
+            const wrap = document.getElementById('release-timer');
+            const el = document.getElementById('timerDisplay');
+            if (!wrap || !el) return;
+
+            const target = new Date(targetIso);
+            if (isNaN(target.getTime())) {
+                console.warn('Некорректный timerTarget:', targetIso);
+                stopReleaseTimer();
+                return;
+            }
+
+            timerTargetMs = target.getTime();
+            timerEnabled = true;
+            wrap.hidden = false;
+            refreshTimerText();
+
+            if (timerIntervalId !== null) clearInterval(timerIntervalId);
+            timerIntervalId = setInterval(refreshTimerText, 1000);
+        }
+
+        async function loadReleaseTimer() {
+            // Таймер есть только на главной — на остальных страницах
+            // контейнера нет, просто выходим.
+            const wrap = document.getElementById('release-timer');
+            if (!wrap) return;
+
+            try {
+                const response = await fetch('progress.json');
+                const data = await response.json();
+
+                if (data.timer === 'ON' && data.timerTarget) {
+                    startReleaseTimer(data.timerTarget);
+                } else {
+                    stopReleaseTimer();
+                }
+            } catch (e) {
+                console.log('Не удалось загрузить таймер:', e);
+                stopReleaseTimer();
+            }
+        }
+
+
         async function loadProgress() {
             const displayEl = document.getElementById('progressDisplay');
             const logContainer = document.getElementById('progress-log');
@@ -167,5 +258,6 @@
             });
 
             loadProgress();
+            loadReleaseTimer();
         });
     
