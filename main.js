@@ -190,7 +190,7 @@
                     setInterval(() => {
                         hue = (hue + 1.2) % 360;
                         el.style.color = 'hsl(' + hue + ', 100%, 60%)';
-                    }, 100);
+                    }, 150);
                     logContainer.appendChild(el);
                 });
             } catch (e) {
@@ -207,7 +207,7 @@
             progressHue = (progressHue + 1.2) % 360;
             p.style.color = `hsl(${progressHue},100%,60%)`;
             p.style.textShadow = `0 0 20px hsl(${progressHue},100%,60%)`;
-        }, 100);
+        }, 50);
 
         
 
