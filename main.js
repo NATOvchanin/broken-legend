@@ -188,7 +188,7 @@
                     el.className = 'log-item';
                     el.textContent = '- ' + text;
                     setInterval(() => {
-                        hue = (hue + 1.2) % 360;
+                        hue = (hue + 0.6) % 360;
                         el.style.color = 'hsl(' + hue + ', 100%, 60%)';
                     }, 150);
                     logContainer.appendChild(el);
