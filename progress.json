@@ -1,9 +1,10 @@
 {
   "status": "ON",
   "timer": "OFF",
-  "timerTarget": "2026-12-01T18:00:00+03:00",
-  "percent": 88,
+  "timerTarget": "2026-10-24T12:00:00+03:00",
+  "percent": 89,
   "items": [
+    "Закончено создание слайдов-концовок (Creation of the closing slides is complete)",
     "Достижения подключены к платформам (Achievements are connected to platforms)",
     "Сделан перевод всего интерфейса и доп.механик (The entire interface and additional mechanics have been translated)",
     "Сделана функция Прогресса (The Progress function has been implemented)",
@@ -12,7 +13,6 @@
     "Проведена вычитка (Proofreading has been completed)",
     "Улучшены анимации боя (Combat animations have been improved)",
     "Закончена колода секретного босса (The secret boss's deck is complete)",
-    "Дописаны концовки (The endings have been written)",
-    "Закончены все секретные сцены (All secret scenes have been completed)"
+    "Дописаны концовки (The endings have been written)"
   ]
 }
