@@ -163,7 +163,7 @@ async function loadReleaseTimer() {
 //    COLOR_MS    — интервал обновления в миллисекундах
 //  Чем меньше STEP и/или больше MS — тем медленнее переливание.
 
-const COLOR_STEP = 1.2;
+const COLOR_STEP = 1.0;
 const COLOR_MS = 50;
 
 let progressHue = 0;
