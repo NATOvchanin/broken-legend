@@ -2,8 +2,9 @@
   "status": "ON",
   "timer": "ON",
   "timerTarget": "2026-10-24T12:00:00+03:00",
-  "percent": 91,
+  "percent": 92,
   "items": [
+    "Добавлены интерактивные звуки (Interactive sounds added)",
     "2 день переведён полностью (Day 2 has been fully translated)",
     "ЗАПУЩЕН ТАЙМЕР ДО РЕЛИЗА (COUNTDOWN TO RELEASE STARTED)",
     "Закончено создание слайдов-концовок (Creation of the closing slides is complete)",
@@ -12,7 +13,6 @@
     "Сделана функция Прогресса (The Progress function has been implemented)",
     "Закрыты последние дыры в постановке (The final gaps in the production have been filled)",
     "Закончена колода финального босса (The final boss's deck is complete)",
-    "Проведена вычитка (Proofreading has been completed)",
-    "Улучшены анимации боя (Combat animations have been improved)"
+    "Проведена вычитка (Proofreading has been completed)"
   ]
 }
