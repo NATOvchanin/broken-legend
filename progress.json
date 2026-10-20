@@ -2,8 +2,9 @@
   "status": "ON",
   "timer": "ON",
   "timerTarget": "2026-10-24T12:00:00+03:00",
-  "percent": 93,
+  "percent": 94,
   "items": [
+    "Музыка к игре готова (The music for the game is ready)",
     "Готова иконка игры (Game icon ready)",
     "Добавлены интерактивные звуки (Interactive sounds added)",
     "2 день переведён полностью (Day 2 has been fully translated)",
@@ -12,7 +13,6 @@
     "Достижения подключены к платформам (Achievements are connected to platforms)",
     "Сделан перевод всего интерфейса и доп.механик (The entire interface and additional mechanics have been translated)",
     "Сделана функция Прогресса (The Progress function has been implemented)",
-    "Закрыты последние дыры в постановке (The final gaps in the production have been filled)",
-    "Закончена колода финального босса (The final boss's deck is complete)"
+    "Закрыты последние дыры в постановке (The final gaps in the production have been filled)"
   ]
 }
