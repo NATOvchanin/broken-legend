@@ -2,8 +2,9 @@
   "status": "ON",
   "timer": "ON",
   "timerTarget": "2026-10-24T12:00:00+03:00",
-  "percent": 94,
+  "percent": 95,
   "items": [
+    "1 генеральный тестовый прогон закончен (1 general test run completed)",
     "Музыка к игре готова (The music for the game is ready)",
     "Готова иконка игры (Game icon ready)",
     "Добавлены интерактивные звуки (Interactive sounds added)",
@@ -12,7 +13,6 @@
     "Закончено создание слайдов-концовок (Creation of the closing slides is complete)",
     "Достижения подключены к платформам (Achievements are connected to platforms)",
     "Сделан перевод всего интерфейса и доп.механик (The entire interface and additional mechanics have been translated)",
-    "Сделана функция Прогресса (The Progress function has been implemented)",
-    "Закрыты последние дыры в постановке (The final gaps in the production have been filled)"
+    "Сделана функция Прогресса (The Progress function has been implemented)"
   ]
 }
