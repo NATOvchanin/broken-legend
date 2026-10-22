@@ -93,6 +93,22 @@
         "img": "assets/img/wiki/miriam.webp"
       },
       {
+        "slug": "mirkiam",
+        "nameRu": "Миркиам",
+        "nameEn": "Mirkiam",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/mirkiam.webp"
+      },
+      {
+        "slug": "piphiy",
+        "nameRu": "Пифий",
+        "nameEn": "Pythius",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/piphiy.webp"
+      },
+      {
         "slug": "goodfolk",
         "nameRu": "Добряки",
         "nameEn": "Goodfolk",
@@ -107,6 +123,117 @@
         "teaserRu": "",
         "teaserEn": "",
         "img": "assets/img/wiki/villains.webp"
+      }
+    ]
+  },
+  {
+    "category": "secondary",
+    "categoryRu": "Второстепенные",
+    "categoryEn": "Supporting cast",
+    "entries": [
+      {
+        "slug": "shut",
+        "nameRu": "Шут",
+        "nameEn": "The Jester",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/shut.webp"
+      },
+      {
+        "slug": "irvin",
+        "nameRu": "Ирвин",
+        "nameEn": "Irvin",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/irvin.webp"
+      },
+      {
+        "slug": "vjdrih",
+        "nameRu": "Вждрих",
+        "nameEn": "Vzhdrikh",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/vjdrih.webp"
+      },
+      {
+        "slug": "white-cat",
+        "nameRu": "Кот-напёрсточник",
+        "nameEn": "Shell-game Cat",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/white_cat.webp"
+      },
+      {
+        "slug": "kinny",
+        "nameRu": "Кинни",
+        "nameEn": "Kinny",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/kinny.webp"
+      },
+      {
+        "slug": "gnom-shadow",
+        "nameRu": "Странная фигура",
+        "nameEn": "Strange Figure",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/gnom_shadow.webp"
+      },
+      {
+        "slug": "morik",
+        "nameRu": "Морик",
+        "nameEn": "Morik",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/morik.webp"
+      },
+      {
+        "slug": "goblin-delivery",
+        "nameRu": "Гоблин-доставщик",
+        "nameEn": "Goblin Courier",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/goblin_delivery.webp"
+      },
+      {
+        "slug": "mage",
+        "nameRu": "Маг",
+        "nameEn": "The Mage",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/mage_sciencist.webp"
+      },
+      {
+        "slug": "bandit",
+        "nameRu": "Тёмный бандит",
+        "nameEn": "Dark Bandit",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/bandit.webp"
+      },
+      {
+        "slug": "arena-master",
+        "nameRu": "Хозяин арены",
+        "nameEn": "Arena Master",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/arena_master.webp"
+      },
+      {
+        "slug": "skeletons",
+        "nameRu": "Скелеты-подручные",
+        "nameEn": "Skeleton Minions",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/skeletons.webp"
+      },
+      {
+        "slug": "mohovich",
+        "nameRu": "Мохович",
+        "nameEn": "Mokhovich",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": "assets/img/wiki/mohovi4.webp"
       }
     ]
   },
@@ -138,6 +265,46 @@
         "teaserRu": "",
         "teaserEn": "",
         "img": "assets/img/wiki/fisherman-interrogation.webp"
+      },
+      {
+        "slug": "battle-vs-world",
+        "nameRu": "Битва против мира",
+        "nameEn": "Battle Against the World",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": ""
+      },
+      {
+        "slug": "cheat-the-cheater",
+        "nameRu": "Обмануть обманщика",
+        "nameEn": "Outsmart the Cheater",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": ""
+      },
+      {
+        "slug": "soldatomania",
+        "nameRu": "Солдатомания",
+        "nameEn": "Soldatomania",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": ""
+      },
+      {
+        "slug": "merchants-court",
+        "nameRu": "Суд торговцев",
+        "nameEn": "Merchants' Court",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": ""
+      },
+      {
+        "slug": "sewer-labyrinth",
+        "nameRu": "Лабиринт канализации",
+        "nameEn": "Sewer Labyrinth",
+        "teaserRu": "",
+        "teaserEn": "",
+        "img": ""
       }
     ]
   }

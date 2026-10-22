@@ -221,7 +221,7 @@ function applyCharacterLanguage(lang) {
     if (!characterGroups.length) return;
     const dict = lang === 'en' ? langEn : langRu;
 
-    const titleKeys = { main: 'catMain', important: 'catImportant', events: 'catEvents' };
+    const titleKeys = { main: 'catMain', important: 'catImportant', secondary: 'catSecondary', events: 'catEvents' };
 
     document.querySelectorAll('.char-section').forEach(section => {
         const group = characterGroups.find(g => g.category === section.dataset.category);
