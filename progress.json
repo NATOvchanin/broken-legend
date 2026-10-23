@@ -2,8 +2,9 @@
   "status": "ON",
   "timer": "ON",
   "timerTarget": "2026-10-24T18:00:00+03:00",
-  "percent": 97,
+  "percent": 98,
   "items": [
+    "3 генеральный тестовый прогон закончен (3 general test run completed)",
     "2 генеральный тестовый прогон закончен (2 general test run completed)",
     "Проведена балансировка противников (Opponent balancing has been performed)",
     "1 генеральный тестовый прогон закончен (1 general test run completed)",
@@ -12,7 +13,6 @@
     "Добавлены интерактивные звуки (Interactive sounds added)",
     "2 день переведён полностью (Day 2 has been fully translated)",
     "ЗАПУЩЕН ТАЙМЕР ДО РЕЛИЗА (COUNTDOWN TO RELEASE STARTED)",
-    "Закончено создание слайдов-концовок (Creation of the closing slides is complete)",
-    "Достижения подключены к платформам (Achievements are connected to platforms)"
+    "Закончено создание слайдов-концовок (Creation of the closing slides is complete)"
   ]
 }
