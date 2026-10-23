@@ -1,9 +1,10 @@
-{
+9{
   "status": "ON",
   "timer": "ON",
   "timerTarget": "2026-10-24T18:00:00+03:00",
-  "percent": 98,
+  "percent": 99,
   "items": [
+    "Игра готова (The game is finished)",
     "3 генеральный тестовый прогон закончен (3 general test run completed)",
     "2 генеральный тестовый прогон закончен (2 general test run completed)",
     "Проведена балансировка противников (Opponent balancing has been performed)",
@@ -12,7 +13,6 @@
     "Готова иконка игры (Game icon ready)",
     "Добавлены интерактивные звуки (Interactive sounds added)",
     "2 день переведён полностью (Day 2 has been fully translated)",
-    "ЗАПУЩЕН ТАЙМЕР ДО РЕЛИЗА (COUNTDOWN TO RELEASE STARTED)",
-    "Закончено создание слайдов-концовок (Creation of the closing slides is complete)"
+    "ЗАПУЩЕН ТАЙМЕР ДО РЕЛИЗА (COUNTDOWN TO RELEASE STARTED)"
   ]
 }
