@@ -37,7 +37,7 @@
             navSubscribe: "Гардероб",
 
             // Главная — описание игры и тизеры
-            aboutText: "Talebreak (Сломанная сказка) — визуальная новелла о детском кукольном спектакле, где разыгрывается история героев, побеждающих зло. Но что, если жители знают, какую роль им суждено сыграть — и каково жить, зная, что с финалом ты просто исчезнешь?\n\nВы не играете за героев — вы интерактивный зритель, управляющий их путём через карточные бои, мини-игры и лёгкую RPG-систему с репутацией и памятью выборов. Игра выйдет в 6 эпизодах, сейчас в работе первый. Она будет полностью бесплатной - единственная валюта, которая нам нужна от вас - это ваше внимание.",
+            aboutText: "Talebreak (Сломанная сказка) — визуальная новелла о детском кукольном спектакле, где разыгрывается история героев, побеждающих зло. Но что, если жители знают, какую роль им суждено сыграть — и каково жить, зная, что с финалом ты просто исчезнешь?\n\nВы не играете за героев — вы интерактивный зритель, управляющий их путём через карточные бои, мини-игры и лёгкую RPG-систему с репутацией и памятью выборов. Игра выйдет в 6 эпизодах, первый готов, сейчас в работе второй. Она будет полностью бесплатной - единственная валюта, которая нам нужна от вас - это ваше внимание.",
             teasersTitle: "Тизеры",
 
             // Гардероб — пояснения к площадкам
@@ -146,12 +146,12 @@
             wikiFishermanInterrogationItem2: "1 — рыбак рассказывает, как приставал к продавщице в центре города",
             wikiFishermanInterrogationItem3: "2 — рыбак напуган, но ничего больше не знает",
             progressLabel: "ПРОГРЕСС ПЕРВОЙ ГЛАВЫ",
-            timerPrefix: "До релиза 1 эпизода: ",
+            timerPrefix: "До релиза 2 эпизода: ",
             timerDays: "дн",
             timerHours: "ч",
             timerMins: "мин",
             timerSecs: "сек",
-            timerEnded: "Релиз 1 эпизода состоялся!",
+            timerEnded: "Релиз 2 эпизода состоялся!",
             feedbackPlaceholder: "Твой текст... (до 15 000 символов)",
             // Легенда
             legend1: "Когда с небес сойдут,\nГерои, чьих имён не знаем мы,\nОни на помощь к нам придут,\nИ защитят наш мир от тьмы.",
@@ -189,7 +189,7 @@
             navSubscribe: "Wardrobe",
 
             // Home — game description and teasers
-            aboutText: "Talebreak is a visual novel about a children's puppet show staging the tale of heroes who defeat evil. But what if the inhabitants know the role they are destined to play — and what is it like to live knowing that with the finale you simply vanish?\n\nYou don't play as the heroes — you are an interactive spectator guiding their path through card battles, mini-games and a light RPG system with reputation and remembered choices. The game will come out in 6 episodes, the first one is in the works now. It will be completely free - the only currency we need from you is your attention.",
+            aboutText: "Talebreak is a visual novel about a children's puppet show staging the tale of heroes who defeat evil. But what if the inhabitants know the role they are destined to play — and what is it like to live knowing that with the finale you simply vanish?\n\nYou don't play as the heroes — you are an interactive spectator guiding their path through card battles, mini-games and a light RPG system with reputation and remembered choices. The game will come out in 6 episodes, first one is done and the second is in the works now. It will be completely free - the only currency we need from you is your attention.",
             teasersTitle: "Teasers",
 
             // Wardrobe — platform notes
@@ -298,12 +298,12 @@
             wikiFishermanInterrogationItem2: "1 — the fisherman admits to harassing a shopkeeper in the city center",
             wikiFishermanInterrogationItem3: "2 — the fisherman is frightened, but knows nothing more",
             progressLabel: "CHAPTER 1 PROGRESS",
-            timerPrefix: "Until Episode 1 release: ",
+            timerPrefix: "Until Episode 2 release: ",
             timerDays: "d",
             timerHours: "h",
             timerMins: "min",
             timerSecs: "sec",
-            timerEnded: "Episode 1 has been released!",
+            timerEnded: "Episode 2 has been released!",
             feedbackPlaceholder: "Your text... (up to 15,000 characters)",
             // Legend (English translation — revised)
             legend1: "When from the heavens they descend,\nThe nameless heroes we await,\nThey'll come to aid us in the end,\nAnd shield our world from shadow's fate.",
