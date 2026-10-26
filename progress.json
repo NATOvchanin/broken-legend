@@ -2,8 +2,9 @@
   "status": "ON",
   "timer": "OFF",
   "timerTarget": "2026-10-24T18:00:00+03:00",
-  "percent": 100,
+  "percent": 0,
   "items": [
+    "Первый эпизод позади, но путешествие продолжается (The first episode is behind us, but the journey continues)",
     "ВЫШЕЛ! ВЫШЕЛ! ВЫШЕЛ! (IT’S OUT! IT’S OUT! IT’S OUT!)",
     "Игра готова (The game is finished)",
     "3 генеральный тестовый прогон закончен (3 general test run completed)",
@@ -12,7 +13,6 @@
     "1 генеральный тестовый прогон закончен (1 general test run completed)",
     "Музыка к игре готова (The music for the game is ready)",
     "Готова иконка игры (Game icon ready)",
-    "Добавлены интерактивные звуки (Interactive sounds added)",
-    "2 день переведён полностью (Day 2 has been fully translated)"
+    "Добавлены интерактивные звуки (Interactive sounds added)"
   ]
 }
