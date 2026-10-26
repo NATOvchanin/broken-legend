@@ -1,36 +1,35 @@
 [
   {
-    "category": "main",
-    "categoryRu": "Главные герои",
-    "categoryEn": "Main heroes",
-    "entries": [
-      {
-        "slug": "valias",
-        "nameRu": "Валиас",
-        "nameEn": "Valias",
-        "teaserRu": "",
-        "teaserEn": "",
-        "img": "assets/img/wiki/valias.webp"
-      },
-      {
-        "slug": "lily",
-        "nameRu": "Лили",
-        "nameEn": "Lily",
-        "teaserRu": "",
-        "teaserEn": "",
-        "img": "assets/img/wiki/lily.webp"
-      },
-      {
-        "slug": "mystery",
-        "mystery": true,
-        "nameRu": "",
-        "nameEn": "",
-        "teaserRu": "И возможно, кто-то ещё?..",
-        "teaserEn": "And perhaps... someone else?..",
-        "img": ""
-      }
-    ]
-  },
+  "category": "main",
+  "categoryRu": "Главные герои",
+  "categoryEn": "Main heroes",
+  "entries": [
+    {
+      "slug": "valias",
+      "nameRu": "Валиас",
+      "nameEn": "Valias",
+      "teaserRu": "",
+      "teaserEn": "",
+      "img": "assets/img/wiki/valias.webp"
+    },
+    {
+      "slug": "lily",
+      "nameRu": "Лили",
+      "nameEn": "Lily",
+      "teaserRu": "",
+      "teaserEn": "",
+      "img": "assets/img/wiki/lily.webp"
+    },
+    {
+      "slug": "piphiy",
+      "nameRu": "Пифий",
+      "nameEn": "Pythius",
+      "teaserRu": "",
+      "teaserEn": "",
+      "img": "assets/img/wiki/piphiy.webp"
+    }
+  ]
+},
   {
     "category": "important",
     "categoryRu": "Важные персонажи",
@@ -99,14 +98,6 @@
         "teaserRu": "",
         "teaserEn": "",
         "img": "assets/img/wiki/mirkiam.webp"
-      },
-      {
-        "slug": "piphiy",
-        "nameRu": "Пифий",
-        "nameEn": "Pythius",
-        "teaserRu": "",
-        "teaserEn": "",
-        "img": "assets/img/wiki/piphiy.webp"
       },
       {
         "slug": "goodfolk",
