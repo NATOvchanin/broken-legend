@@ -12,5 +12,12 @@
     "imgEn": "assets/img/teasers/en/teaser2.webp",
     "captionRu": "",
     "captionEn": ""
+  },
+  {
+    "id": 3,
+    "imgRu": "assets/img/teasers/teaser3.webp",
+    "imgEn": "assets/img/teasers/en/teaser3.webp",
+    "captionRu": "",
+    "captionEn": ""
   }
 ]
