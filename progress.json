@@ -2,8 +2,9 @@
   "status": "ON",
   "timer": "OFF",
   "timerTarget": "2026-10-24T18:00:00+03:00",
-  "percent": 1,
+  "percent": 2,
   "items": [
+    "Сделаны текстуры для вступления (Textures for the intro have been created)",
     "Написан текст вступления (The introductory text has been written)",
     "Первый эпизод позади, но путешествие продолжается (The first episode is behind us, but the journey continues)",
     "ВЫШЕЛ! ВЫШЕЛ! ВЫШЕЛ! (IT’S OUT! IT’S OUT! IT’S OUT!)",
@@ -12,7 +13,6 @@
     "2 генеральный тестовый прогон закончен (2 general test run completed)",
     "Проведена балансировка противников (Opponent balancing has been performed)",
     "1 генеральный тестовый прогон закончен (1 general test run completed)",
-    "Музыка к игре готова (The music for the game is ready)",
-    "Готова иконка игры (Game icon ready)"
+    "Музыка к игре готова (The music for the game is ready)"
   ]
 }
