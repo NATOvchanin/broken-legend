@@ -2,8 +2,9 @@
   "status": "ON",
   "timer": "OFF",
   "timerTarget": "2026-10-24T18:00:00+03:00",
-  "percent": 3,
+  "percent": 4,
   "items": [
+    "Написан текст первой развилки на развлечение (The text for the first branching point in the entertainment section has been written)",
     "Написана сцена первого боя (The scene of the first battle has been written)",
     "Сделаны текстуры для вступления (Textures for the intro have been created)",
     "Написан текст вступления (The introductory text has been written)",
@@ -12,7 +13,6 @@
     "Игра готова (The game is finished)",
     "3 генеральный тестовый прогон закончен (3 general test run completed)",
     "2 генеральный тестовый прогон закончен (2 general test run completed)",
-    "Проведена балансировка противников (Opponent balancing has been performed)",
-    "1 генеральный тестовый прогон закончен (1 general test run completed)"
+    "Проведена балансировка противников (Opponent balancing has been performed)"
   ]
 }
