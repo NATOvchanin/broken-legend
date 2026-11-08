@@ -2,8 +2,9 @@
   "status": "ON",
   "timer": "OFF",
   "timerTarget": "2026-10-24T18:00:00+03:00",
-  "percent": 5,
+  "percent": 6,
   "items": [
+    "Готовы текстуры для сцены (Textures for the scene are ready)",
     "Сделано 3 боевых колоды (3 combat decks created)",
     "Написан текст первой развилки на развлечение (The text for the first branching point in the entertainment section has been written)",
     "Написана сцена первого боя (The scene of the first battle has been written)",
@@ -12,7 +13,6 @@
     "Первый эпизод позади, но путешествие продолжается (The first episode is behind us, but the journey continues)",
     "ВЫШЕЛ! ВЫШЕЛ! ВЫШЕЛ! (IT’S OUT! IT’S OUT! IT’S OUT!)",
     "Игра готова (The game is finished)",
-    "3 генеральный тестовый прогон закончен (3 general test run completed)",
-    "2 генеральный тестовый прогон закончен (2 general test run completed)"
+    "3 генеральный тестовый прогон закончен (3 general test run completed)"
   ]
 }
