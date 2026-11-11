@@ -2,8 +2,9 @@
   "status": "ON",
   "timer": "OFF",
   "timerTarget": "2026-10-24T18:00:00+03:00",
-  "percent": 7,
+  "percent": 8,
   "items": [
+    "Сделана механика викторины (The quiz mechanic has been implemented)",
     "Дописан текст первого акта (The text of the first act has been completed)",
     "Готовы текстуры для сцены (Textures for the scene are ready)",
     "Сделано 3 боевых колоды (3 combat decks created)",
@@ -12,7 +13,6 @@
     "Сделаны текстуры для вступления (Textures for the intro have been created)",
     "Написан текст вступления (The introductory text has been written)",
     "Первый эпизод позади, но путешествие продолжается (The first episode is behind us, but the journey continues)",
-    "ВЫШЕЛ! ВЫШЕЛ! ВЫШЕЛ! (IT’S OUT! IT’S OUT! IT’S OUT!)",
-    "Игра готова (The game is finished)"
+    "ВЫШЕЛ! ВЫШЕЛ! ВЫШЕЛ! (IT’S OUT! IT’S OUT! IT’S OUT!)"
   ]
 }
