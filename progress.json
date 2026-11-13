@@ -2,8 +2,9 @@
   "status": "ON",
   "timer": "OFF",
   "timerTarget": "2026-10-24T18:00:00+03:00",
-  "percent": 12,
+  "percent": 13,
   "items": [
+    "Сделана колода случайного противника (A random-radiation block has been produced)",
     "Добавлена новая мини-игра (A new mini-game has been added)",
     "Готов текст первой случайной встречи (The text for the first random encounter is ready)",
     "Спроектированы все случайные встречи (All random encounters are designed)",
@@ -12,7 +13,6 @@
     "Дописан текст первого акта (The text of the first act has been completed)",
     "Готовы текстуры для сцены (Textures for the scene are ready)",
     "Сделано 3 боевых колоды (3 combat decks created)",
-    "Написан текст первой развилки на развлечение (The text for the first branching point in the entertainment section has been written)",
-    "Написана сцена первого боя (The scene of the first battle has been written)"
+    "Написан текст первой развилки на развлечение (The text for the first branching point in the entertainment section has been written)"
   ]
 }
