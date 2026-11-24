@@ -2,8 +2,9 @@
   "status": "ON",
   "timer": "OFF",
   "timerTarget": "2026-10-24T18:00:00+03:00",
-  "percent": 16,
+  "percent": 17,
   "items": [
+    "Закончена 3/3 первых случайных встреч (3/3 of the initial random encounters have been completed)",
     "Закончена 2/3 первых случайных встреч (2/3 of the initial random encounters have been completed)",
     "Закончена 1/3 первых случайных встреч (1/3 of the initial random encounters have been completed)",
     "Закончена сцена вступления к случайным встречам (The introductory sequence for random encounters is complete)",
@@ -12,7 +13,6 @@
     "Готов текст первой случайной встречи (The text for the first random encounter is ready)",
     "Спроектированы все случайные встречи (All random encounters are designed)",
     "Нарисованы спрайты для викторины (Sprites for the quiz have been drawn)",
-    "Сделана механика викторины (The quiz mechanic has been implemented)",
-    "Дописан текст первого акта (The text of the first act has been completed)"
+    "Сделана механика викторины (The quiz mechanic has been implemented)"
   ]
 }
